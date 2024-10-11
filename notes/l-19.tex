@@ -1,0 +1,146 @@
+
+
+\noindent
+\emph{Lecture - 19\hfill 11 Oct 24, Fri}
+
+\begin{definition}[The falling factorial]
+	For any positive integer $n,$ we wdefine the \emph{falling factorial} to be 
+	$$ (t)_n = t(t-1) \cdots (t - n+1).$$
+\end{definition}
+
+
+\begin{definition}[The rising factorial]
+	For any positive integer $n,$ we wdefine the \emph{rising factoria} to be 
+	$$ (t)^n = t(t+1) \cdots (t + n-1).$$
+\end{definition}
+
+
+\begin{remark}
+	$$\binom{ \alpha } {n} = \frac{( \alpha)_n}{n!} $$
+\end{remark}
+
+\begin{remark}
+	$ t^{(n)} = (-1) (-t)_n $
+\end{remark}
+
+
+\begin{theorem}
+	For any $t$ in $\mathbb{R}$ and nay $n $ in $\mathbb{N},$ we have
+	$$(t)_n = \sum_{k \in [n]} s(n,k) t^k. $$
+\end{theorem}
+
+\begin{remark}
+	For fixed $n$ in $\mathbb{N},$ the generating function of 
+	$\left\{ s_{n,k} \;:\; sdfghjk,l.  \right\} $ is 
+\end{remark}
+\begin{proof}
+	For $n=1,$ $s(1,1) = 
+	\begin{bmatrix} 1\\1 \end{bmatrix}.$
+Suppose the formula is true for some $n$ in $\mathbb{N}.$ Then,
+\begin{align*}
+	(t)_{n+1}
+	={}& (t-n) (t)_n \\
+	={}& (t-n) \left( \sum_{k \in [n]} s(n,k) t^k \right)  \\
+	={}& \sum_{k \in [n]} s(n,k) t^k - \sum_{k \in [n]} s(n,k-1) t^k  \\
+	={}& \sum_{k \in [n]} s(n+1,k) t^k.
+\end{align*}
+\end{proof}
+
+
+
+\section{Stirling Numbers of the Second Kind}
+
+\begin{definition}
+	The Stirling number of the second kind are denoted as 
+	$$ \begin{Bmatrix} n\\k \end{Bmatrix} = S(n,k)$$
+	for positive integers $n,k$ and they represent the
+	number of partitions of $[n]$ into $k$ nonempty blocks.
+\end{definition}
+
+
+\begin{remark}
+	As the $n^\text{th}$ Bell number $B_n$ is the number of partitions is the toal number of partitions of $[n]$ into nonempty blocks, we have
+	$$B_n = \sum_{k=1}^{n} \begin{Bmatrix} b\\k\end{Bmatrix}.$$ 
+\end{remark}
+
+
+
+Any partition of $[n]$ into $k$ nonempty blocks is related to the
+surjective functions from $[n]$ to $[k].$ Given a surjective function
+$f \colon [n] \to [k],$ the sets $\{ f^{-1}(1), \dotsc, f^{-1}(k)\}$
+forms a partition of $[n]$ into $k$ non empty blocks.
+
+Conversely, given a partition $A_1, A_2, \dotsc, A_k$ of $[n]$ into $k$ nonempty blocks and $\sigma$ in $S_k,$ $f \colon [n] to [k]$ defined by
+$f(i) = \sigma(j)$ such that $i$ is in $A_{j}$ is a surjective function.
+Thus, we have proved the theorem
+\begin{theorem}
+	If $n \geq k,$ then 
+	\begin{align*}
+		k! \begin{Bmatrix} n\\k\end{Bmatrix}
+		={}& \lvert \{ f\colon [n] \to [k] \; : \;
+		f \text{ is surjective } \} \rvert \\
+		={}& \sum_{j=0}^{k} (-1)^j \binom{k}{j} (k-j)^n\\
+	\end{align*}
+\end{theorem}
+
+
+\begin{remark}
+	We have the recurrence relation for positive integers $k \leq n,$
+	$$ \begin{Bmatrix} n\\k\end{Bmatrix} = 
+	\begin{Bmatrix}n-1\\k-1 \end{Bmatrix} + 
+	k \begin{Bmatrix}n-1\\k-1 \end{Bmatrix}. $$
+\end{remark}
+
+
+\begin{theorem}
+for any $t$ in $\mathbb{R},$ and any $n$ in $\mathbb{N},$ we have
+$$	 t^n = \sum_{k \in [n]} 
+\begin{Bmatrix} n\\k \end{Bmatrix} (t)_k. $$
+\end{theorem}
+
+\begin{proof}
+	May be proven using induction.
+\end{proof}
+
+\begin{remark}
+	Note that $(t)_n$ 
+\end{remark}
+
+
+\begin{definition}
+	A vector space $V$ over a field $\mathbb{F},$ is a set
+	$A$ equipped with two operations $+ \colon A \times A \to V$ usually called `addition' and
+	$\cdot \colon \mathbb{F} \times A \to A$ called the `scalar multiplication' such that for any $\alpha, \beta$ in
+	$\mathbb{F}$ and $x,y$ and $z$ in $A,$
+	\begin{enumerate}
+		\item $\alpha(\beta x) = (\alpha \beta)x,$
+		\item $(\alpha + \beta) x = \alpha x + \beta x,$
+		\item $\alpha(x + y) = \alpha x + \alpha y,$
+		\item $(\alpha + \beta) x = \alpha x + \beta x$
+		\item $ 1 x = x$
+		\item $x+y = y+x,$
+		\item $(x+y)+z = x + (y+z)$
+	\end{enumerate}
+	where $1$ and $0$ are the multiplicative and additive identity of $\mathbb{F}$ and there exists $\mathbf{0}$ in $A$ such that $0 x = \mathbf{0}$
+	for all $x$ in $A.$
+\end{definition}
+
+Hereafter, for a vector space $V,$ the underlying set $A$ will also be 
+represented by $V.$
+
+The vector space of polynomials over an unkown $t$ with coefficients
+in $\mathbb{F},$ is a vector space over $\mathbb{F}.$
+
+Let $\mathcal{P}_n$ be the (sub)space of all polynomials in
+$\mathbb{F}[t]$ of degree at most $n.$ Then $\mathcal{P}_n.$ 
+the dimension of $\mathcal{P}_n$ is $n+1$ because $\{ 1, t, t^2,
+\dotsc, t^n \}$ forms a basis of it.
+
+Note that $\{ (t)_0, (t)_1, \dotsc, (t)_n \}$ and 
+$\{ t^{(0)}, t^{(1)}, \dotsc, t^{(n)} \}$ form two separate bases of 
+$\mathcal{P}_n.$ The change of basis formulae for these bases are given
+by the relation between $(t)_i$ and  $t^{(i)}.$
+
+If $A = \{ s(i,j) \}$ and $ B = \{S(i,j) \} $ are $n \, \times  \, n$
+matrices, then $A = B^{-1}.$
+

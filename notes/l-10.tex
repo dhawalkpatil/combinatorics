@@ -1,0 +1,96 @@
+\noindent
+\emph{Lecture 10 \hfill 20 Sep 2024}
+
+\begin{definition}[Order of a permutation]
+The order of a permutation $\sigma$ in $S_n$, denoted by $\operatorname{ord}(\sigma)$
+is the smallest natural number $k$ such that $\sigma^k = \iota.$
+\end{definition}
+
+\begin{remark}
+	For all $ \sigma$ in $S_n$ is at most $n!$ All of $ \sigma, \sigma^2, \dotsc, \sigma^{n!}$
+	are distinct and cover all of $S_n$ so applying the Pigeonhole Principle, we know 
+	that at least one of these should be $ \iota$ the identity permutation. This means
+	$\operatorname{ \sigma} \leq n!.$ 
+\end{remark}
+
+\begin{remark}
+	The order of the identity permutation $ \iota$ denoted by $\operatorname{ \iota} $
+	is 1.
+\end{remark}
+
+\begin{corollary}[Order of product of disjoint cycles]
+	Let $ \sigma = \tau_1 \, \tau_2 \, \cdots \, \tau_k$ where $ \tau_1, \tau_2, \dotsc
+	\tau_k$ are disjoint cycles in $S_n.$ Then $\operatorname{ord}( \sigma) = 
+	\operatorname{LCM}(k_1, k_2, \dotsc, k_k),$ where $k_i$ is the length of $ \tau_i$
+	for each $i = 1, 2, \dotsc k.$
+\end{corollary}
+
+\section{Decomposition into transpositions}
+Consider the polynomial $ \Delta_n$ in $n$ variables $x_1, x_2, \dotsc, x_n$ defined
+by
+$$ \Delta_n = \Pi _{1 \leq i \leq j \leq n} (x_i - x_j) $$
+
+For any $ \sigma \in S_n,$ define the polynomial
+$$ \Delta_n( \sigma) = \Pi _{1 \leq i < j \leq n} ( x _{\sigma(i) } - s _{ \sigma(j)} ). $$
+
+Note that $ \Delta_n = \Delta( \epsilon) .$
+Also, each factor in the expression of $ \Delta_n( \sigma) $ coincides with a factor of
+$ \Delta $ but possibly introduces a $-$ sign.
+
+\begin{definition}[Signature of a permutation]
+	The signature of a permutation $ \sigma$ in $S_n$ is denoted by $\operatorname{sgn}
+	( \sigma)$ and defined as
+	$$ \operatorname{sgn}( \sigma) = \begin{cases}
+	1 & \text{ if } \Delta_n(\sigma) = \Delta_n \\
+	-1 & \text{ if } \Delta_n( \sigma) = - \Delta_n \\
+	\end{cases}. $$
+\end{definition}
+
+\begin{theorem}[asd]
+	For any natural number $ n \geq 2,$
+	\begin{enumerate}
+		\item If $ \sigma$ is a transposition, $ \operatorname{sgn} ( \sigma) = -1.$
+		\item If $ \sigma, \tau$ are in $S_n,$ then $ \operatorname{sgn}( \sigma %
+			\circ \tau) = \operatorname{sgn}( \sigma) \operatorname{sgn} ( \tau ) $
+	\end{enumerate} 
+\end{theorem}
+
+\begin{proof}
+	Let $ \sigma = (k \ l) $ is a transposition, then
+	$$ \Delta_n( \sigma ) = \Pi _{1 \leq i < j \leq n} \left( x _{ \sigma(i) }
+	 - x _{ \sigma(j)} \right).$$ 
+	 I $i < j$ and $ \left\{ i, j  \right\}  \cap  \left\{ k,l \right\} = \phi,$
+	 then $ x _{\sigma(i)} - x _{\sigma(j)} = x_i - x_j. $
+	 We now consider the case that $ \left\{ i,j \right\} \cap \{ k, l \} \not = \phi.$
+	 If $i < k ,$
+	 then $x _i - x_ l $ becomes $x_i - x_k$ and $x_i - x_k$ becomes $x_i - x_l.$
+	 If $j > l,$
+	 $x_l - x_j$ becomes $x_k - x_j$ and
+	 $x_k - x_j$ becomes $x_l - x_j.$
+	 If $ k < i < l,$ $x_k - x_i$ becomes $x_l - x_i = -(x_i - x_l) $ 
+	 and $ x_i  -x_l$ becomes $x_i - x_k = -(x_k - x_i).$
+	Each of these changes does not affect $\Delta_n( \sigma).$
+	 The only case which does, is if $i = k $ and $ j = l,$ then $ x_l - x_k$ becomes $x_k - x_l.$
+
+	 Let $\sigma, \tau$ be in $S_n.$ Suppose $ \Delta_n( \tau)$ has exactly $r$ factors
+	  of the form $x_j - x_i$ where $j > i,$ so that
+	  $\operatorname{ ord} ( \sigma) = (-1) ^r.$ 
+\end{proof}
+
+
+\begin{definition}[Even and odd permutations]
+	A permutation $ \sigma$ is said ot be even if , respectively .
+	The set of all even permutations in $S_n$ is a subgroup of $S_n,$ i.e.,
+	it is closed under product. It is called the alternating group of degree $n$
+	and denoted by
+	$$ A_n = \left\{  \sigma \in S_n \, : \; \operatorname{sgn}( \sigma) = 1 \right\}. $$
+\end{definition}
+
+
+\begin{remark}
+	While we can write a given $ \sigma \in S_n$ as a product of transpositions in many different ways,
+	what does not change is whether there are an odd or even number of transpositions.
+\end{remark}
+
+Exercise
+For a cycle, write it as a product

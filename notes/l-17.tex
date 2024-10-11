@@ -1,0 +1,81 @@
+
+\noindent
+\emph{Lecture - 17\hfill 07 Oct 24, Mon}
+
+\section{The Inclusion-Exclusion Principle}
+The simplest possible manifestation of the inclusion exclusion Principle
+is
+$$ \lvert A \cap B \rvert = \lvert A \rvert + \lvert B \rvert - \lvert A \cap B \rvert$$
+for any two finite substes $A$ and $B$ of a set $X.$
+
+\begin{theorem}
+	Let $A$ be a finite set, and $A_1, A_2, \dotsc A_k \subseteq A.$
+	Then
+	$$ \lvert A \setminus \bigcup_{j \in [k]} A_j \rvert
+	= \sum_{J \subseteq[k]} (-1)^{ \lvert  J \rvert} \lvert A_J \rvert$$
+	where $A_J = \bigcap_{j \in J} A_j,$ and $A_{\phi} = A.$
+\end{theorem}
+
+\begin{remark}
+	We can think of $A_1, A_2, \dotsc, A_k$ as a bunch of bad sets
+	which we want to exclude from $A.$
+\end{remark}
+
+\begin{proof}[My Proof]
+	Let $S_a = \{ i \in [n] \, : \, a \in A_i \}$ for each $a$ in 
+	$A.$ Let $B = \bigcup_{i \in [n]} A_i.$ We may write
+\begin{align*}
+	\lvert B \rvert% 
+	={}& \sum_{a \in B} 1 \\
+	={}& \sum_{a \in B} 1 - (1-1)^{ \lvert S_a \rvert} \\
+	\intertext{(because $ \lvert S_a \rvert \not = 0$ for $a$
+	in $B.$)}
+	={}& \sum_{a \in B} \sum_{j=1}^{ \lvert S_a \rvert} (-1)^j
+	\binom{ \lvert S_a \rvert}{j} \\
+	={}& \sum_{a \in B} \sum_{j=1}^{ \lvert S_a \rvert} (-1)^j
+\sum_{\substack{ J \subseteq [S_a]\\ \lvert J \rvert = j}} 1 \\
+	\intertext{(the binomial coefficient is simply the number of ways of choosing $k$ sized subsets from $S_a.$)}
+	={}& \sum_{a \in B} \sum_{j=1}^{ \lvert S_a \rvert}
+\sum_{\substack{ J \subseteq [S_a]\\ \lvert J \rvert = j}} (-1)^{ \lvert J \rvert} \\
+	={}& \sum_{a \in B} \sum_{J \subseteq [S_a]} (-1)^{ \lvert J \rvert} \\ 
+	={}& \sum_{a \in b} \sum_{j \subseteq [n]} (-1)^{ \lvert J \rvert} \chi_1(a) \cdots \chi_n(a) \\
+	\intertext{(because the product $\chi_1(a) \cdots \chi_n(a)$
+		is $1$ if $a$ is in $\bigcap_{i \in S_a} A_i$ and
+	$0$ otherwise)}
+	={}& \sum_{j \subseteq [n]} (-1)^{ \lvert j \rvert}
+	\sum_{a \in b} \chi_1(a) \cdots \chi_n(a) \\
+	\intertext{(because finite double summations can be interchanged.)}
+	={}& \sum_{J \subseteq [n]} (-1)^{ \lvert J \rvert}
+	\lvert \bigcap_{j \in J} A_j \rvert .
+\end{align*}
+\end{proof}
+
+\iffalse
+\begin{proof}
+	The right hand side of the equation may be rewritten as
+\begin{align*}
+	& \sum_{m=0}^{k} (-1)^m \sum_{\substack{J \subseteq [k] \\ \lvert J \rvert = m}} \lvert A_J \rvert \\
+	={}& \sum_{m=0}^{k} \sum_{\substack{J \subseteq[k] \\
+	\lvert J \rvert = m}} \chi_J(i)
+\end{align*}
+Fix $a$ in $A.$
+Then
+\begin{align*}
+	={}& \sum_{\substack{ J \subseteq [k] } (-1)^{ \lvert J \rvert}}
+		\chi_{A_J} (a) \\
+	& \sum_{\substack{ J \subseteq [k]\\ a \in A_J }} \chi_{A_J} (a) \\
+	={}& \sum_{J \subseteq S_i} (-1)^{ \lvert J \rvert},
+\end{align*}
+ where $S_i = \{ j \in [k] \,:\, a \in A_j \}.$
+ If $S_i \not = \phi,$ then $ \sum_{J \subseteq [k]} (-1)^{ \lvert J \rvert} \chi_{J}(i) = (-1)^0 \chi_{A_\phi}(a) = 1.$
+ If $S_i \not = \phi,$ then
+ \begin{align*}
+	& \sum_{J \subseteq [j]} (-1)^{ \lvert J \rvert } \chi_{A_J} (i)\\
+	={}& \sum_{J \subseteq [S_i] } (-1)^{  }\\
+	={}& \sum_{j=0}^{ \lvert S_i \rvert} (-1)^i \sum_{
+	\substack{ J \subseteq [k] \\ \lvert J \rvert = j}} 1 \\
+	={}& d
+ \end{align*}
+\end{proof}
+
+\fi

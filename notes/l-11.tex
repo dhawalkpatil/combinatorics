@@ -1,0 +1,58 @@
+\section{Counting beyond permutations}
+
+Recall that $\binom{n}{k},$ read ``$n$ choose $k,$"
+and represents the number of ways in which a subset of $k$ objects 
+may be chosen from a set of $n$ objects. It is also written as ${}^nC_k.$
+
+\begin{definition}[$\binom{n}{k}$]
+	For $n \in \mathbb{N},$ the \emph{binomial coefficient} $\binom{n}{k}$
+	is the number of subsets of $[n]$ with $k$ elements.
+\end{definition}
+
+\begin{proposition}
+	For $n$ in $\mathbb{N},$ we have $\binom{n}{k} =  \frac{n!}{k! (n-k)!}.$	
+\end{proposition}
+
+
+More egnerally, if $n$ is in $\mathbb{N},$ the number of partitions of $[n]$
+with sizes $k_1, \dotsc, k_r$ is denoted by
+$\begin{pmatrix} n \\ k_1 \: k_2\: \cdots \: k_r \end{pmatrix},$
+and called a \emph{multinomial coefficient.}
+
+\begin{theorem}
+	For $n$ in $\mathbb{N}$ and $k_1, k_2, \dotsc, k_r$ in $\mathbb{N}$ such that
+	$k_1 + k_ 2 + \cdots + k_r = n,$ we have 
+	$$ \begin{pmatrix} n \\ k_1 \; k_ 2 \; \cdots \; k_r \end{pmatrix}
+	= \frac{n!}{k_1 ! k_2 ! \cdots k_r!}. $$
+\end{theorem}
+
+\begin{theorem}[Binomial Theorem]
+	If $n$ is in $\mathbb{N}$ and $x, y $ are elements in $\mathbb{R}$ (or in any ring 
+	such that $xy = yx$), then 
+	$$ (x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^k y^{n-k} .$$
+\end{theorem}
+Combinatorial Consequences
+
+
+Settings $x=1, y=  1$ here, we get
+$$
+\sum_{j=0}^{n} \binom{n}{j} = (1+1)^n = 2^n.$$
+Is there a bijective proof of this identity?
+
+\section{Recurrence Relations}
+\begin{example}[Fibonacci Numbers]
+	The Fibonacci numbers are a sequence $\{ F_n \}_n$ of natural numbers defined by
+	$$ F_1 = 1 \quad F_2 = 1 \\
+	F_n = F_{n-2} + F_{n-1},$$
+	for all natural numbers $n.$
+\end{example}
+This is a difference equation and may be viewd as an analogue of a differential
+equation in a \emph{discrete time domain.}
+So, a solution for $F_n$ for a general $n$ in $\mathbb{N}$ without
+using recurrence relations may be though of as a solution to the difference equation.
+The solution is $F_n = \frac{1}{\sqrt{5}} \left[ \left( 
+\frac{1 + \sqrt{5}}{2}^n \right)  - \left( \frac{1 - \sqrt{5}}{2}^n \right) \right].$
+
+\section{Power Series}
+A \emph{Formal Power Series} is an expression of the form $ \sum_{n \in \mathbb{Z}^+}^{} 
+a_n t^n,$ where $a_n$ is in $\mathbb{R}$ for each $n$ in $\mathbb{Z}^+.$

@@ -1,0 +1,65 @@
+\begin{theorem}[Eueler- Hierholzer Theorem]
+	A graph $G$ is Eulerian, i.e., has a trail containing each edge exactly once, if and only if it is connected and each vertex has even degree.
+\end{theorem}
+\begin{proof}
+	Assume that $G$ is connected and each of its vertices has even degree. We want to prove that it is Eulerian. We will use induction on the number $ \lvert E \rvert$ of edges in $G.$
+
+	Let $m = 1.$ The only connected graphs having exactly one edge are $ G_1 =  ( \{v_1\}, \{\{v_1,v_1\}\} ),$ the graph with one vertex and a loop on it, and $G_2 = ( \{v_1, v_2\}, \{\{v_1,v_2\}\})$ the graph with two vertices and exactly one edge between them. The latter has vertices with odd degrees, so only consider $G_1.$
+$G_1$ is Eulerian because the loop is a trail.
+
+Let us assume that the statement is true for $ \lvert E \rvert = 1, \dotsc, k$ where $k \in \mathbb{N}$ is randomly chosen.
+We now take a connected graph $G$ with $k+1$ edges such that every vertex has even degree.
+By the preceeding lemma, $G$ contains a cycle $C$ because every vertex has degree $\geq 2.$
+Let $G'$ be the graph obtained by removing this cycle form $G.$
+
+Let $\tilde{G}$ be a connected component of $G'.$
+Then $\tilde{G}$ is trivially connected, and for all vertives $v$ in $V(\tilde{G},$
+the $\deg_{\tilde{G}}(v) = \deg{G'}(v),$ because no edge of $\tilde{G}$ connects to a
+vertex outside it.
+Thus, each vertex of $\tilde{G}$ is even and it satisfies the induction hypothesis.
+It is thus Eulerian.
+
+We proceed to construct an Eulerian walk on $G.$
+Let $P = v_0, e_1, v_1, \dotsc, e_s, v_s$ be an Eulerian walk on a collection $ \mathcal{C}$
+containing
+the cycle $C$ and some or none of the connected components of $G'.$
+If there is a vertex $v$ which is not in $P,$ then let $\tilde{G}$ be the connected component 
+containing $v.$
+There exists some $l \in \mathbb{N}$ such that $v_l \in \tilde{G}$ is contained in $P.$
+This is because we assumed $G$ is connected and removed $C$ from it.
+So, $v$ must have a path connecting it to $C,$ and it can only contain vertices
+from $\tilde{G}$ and from $C$ as any vertex in this path is either in $P$ 
+or in the same connected component as $v$ which is $\tilde{G}.$
+As $C$ is non empty, $\tilde{G}$ has fewer than $k$ edges and has an Eulerian trail
+by the induction hypothesis. Let this trail be 
+$ v_l = x_0, e_1, x_1, e_2, x_2, \dotsc, e_r, x_r = v_l$
+We then find that 
+$  v_0, e_1, v_1, \dotsc, e_l,v_l = x_0, e_1, x_1, e_2, x_2, \dotsc, e_r, x_r = v_l, e_{l+1}, v_{l+1}, \dotsc, 
+e_s = v_s = v_0$
+is an Eulerian trail on $\mathcal{C} \cup \left\{ \tilde{G} \right\}.$
+
+By induction, we have an Eulerian trail on $G.$
+
+\end{proof}
+
+\begin{definition}[Bipartite graphs]
+	A graph $G = (V, E)$ is said to be bipartite if $V = A \cup  B$ with
+	$ A \cap B = \phi,$ such that both $A$ and $B$ are independent sets.
+	In this case, we call $A$ and $B$ the \emph{partitite} sets of $G.$
+\end{definition}
+
+We have the following characterisation of bipartite graphs.
+
+
+
+\begin{theorem}[K\"onig]
+	A graph $G$ is bipartite if and only if it has no odd cycles.
+\end{theorem}
+
+\begin{lemma}
+	A graph is bipartite if and only if all its connected components are bipartite.
+\end{lemma}
+
+\begin{proof}	
+	Given this lemma, we can prove the theorem by assuming that $G$ is connected.
+\end{proof}

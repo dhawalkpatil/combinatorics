@@ -1,0 +1,155 @@
+
+\noindent
+\emph{Lexture 16 \hfill 04 Oct 204, Fri}
+
+\begin{definition}[Double Factorial]
+	For any odd integer $n,$ we define the \emph{double factorial}
+	$n!!$ of $n=2k-1$ by $1 \times 3 \times  5 \times \cdots 
+	\times 2k-1.$
+\end{definition}
+For $n = 2k-1,$ we have
+$$ n!! = \frac{(2k)!}{k! 2^k}.$$
+
+
+\begin{lemma}
+	For any positive integer $n,$ we have
+	$$ \binom{1/2}{n+1} = 
+	\frac{(-1)^n}{ (n+1) 2^{2n+1}} \binom{2n}{n}.$$
+\end{lemma}
+
+\begin{proof}
+	Given a positive integer $n,$ we have
+	\begin{align*}
+		\binom{1/2}{n+1}
+		={}& \frac{1/2 (1/2-1)\cdots(1/2-n)}{(n+1)!}\\
+		={}& \frac{(1-2)(1-4)\cdots(1-2n)}{2^{n+1} (n+1)!} \\
+		={}& \frac{(-1)^n}{2^{n+1} (n+1)!} (2n-1)!!\\
+		={}& \frac{(-1)^n}{2^{n+1} (n+1)!} \frac{(2n)!}{2^n (n!}\\
+		={}& \frac{(-1)^n}{(n+1) 2^{2n+1}} \frac{(2n)!}{(n!)^2}
+	\end{align*}
+	
+\end{proof}
+
+
+Using this expression for $\binom{1/2}{n},$ we can rephrase the 
+expression for Catalan numbers in the following way.
+$C_n$
+
+\section{How does $C_n$ behave as $n$ gets large?}
+From Stirling's Formula we know that
+$n! \sim \sqrt{2 \pi n} \left( \frac{n}{e} \right) ^n.$ We can deduce
+$$ \binom{2n }{n} = 
+\frac{(2n)!}{(n!)^2} \sim
+\frac{\sqrt{2\pi 2n} \left( \frac{2n}{e}^{2n} \right) }{ 2\pi n (
+\frac{n}{e}^{2n}}.$$
+which implies that
+$\binom{2n}{n} \sim \frac{1}{\sqrt{\pi n}} 2^{2n}.$
+Therefore
+$$ C_n = \frac{1}{(n+1)} \binom{2n}{n}
+\sim \frac{4^n}{(n+1) \sqrt{\pi n}}
+\sim \frac{4^n}{ \pi n^{3/2}}.$$
+In other words,
+$\log_2 C_n = 2n - \frac{3}{2} \log_2 n - \frac{1}{2} \pi + o(1).$
+
+\section{Aside: Another use for Cataln Numbers}
+For any positive integer $n,$ $C_n$ also represents the number of ways
+of breaking down the sum of $n+1$ numbers into pairwise operations.
+
+For instance, when $n=2,$
+$(x_1+  x_2) + x_3 = x_1  +(x_2 + x_3),$ and
+when $n=3,$ 
+$$(x_1 + x_2) + (x_3 + x_4) = (x_1 + (x_2 + x_3)) + x_4 $$
+$$ = ((x_1 + x_2) + x_3) + x_4 = x_1 + (x_2 + (x_3 + x_4))$$
+$$ = x_1 + (x_2 + x_3 ) +x_4 .$$
+
+\section{Bell Numbers}
+\begin{definition}
+The $n^\text{th}$ \emph{Bell number $B_n$} is trhe number of partitions
+of a set of $n$ elements.
+\end{definition}
+
+Recall that a partition of a set $A$ is a collection of nonempty
+subsets $ \{ A_1, \dotsc, A_k\}$ such that 
+$A_i \cap A_j =  \phi$ if $i \not = j$ and $\bigcup_{i \in [k]} A_i = A.$
+
+\begin{example}
+	$B_1 = 1$ becausue the only partition of $[1]$ is $\{\{1\}\}.$
+
+	$B_2 = 2$ because the only partitions of $[2]$ are
+	$\{ \{ 1,2\} \}$ and $\{ \{1\}, \{2\} \}.$
+
+	$B_3 = 5$ because $\{ \{ 1\} , \{ 2, 3\} \},$ 
+	$\{ \{1 \}, \{2\}, \{3\}\},$ $\{ \{ 1,2,3\}\},$
+	$\{ \{1, 2\}, \{3\}\}$ and $\{ \{1,3\}, \{2\}\}$
+	are the only partitions of $[3].$
+\end{example}
+
+\begin{lemma}
+	For $n$ in $\mathbb{N},$
+	$$ B_n = \sum_{k = 1}^{n} \binom{n-1}{k-1} B_{n-k}.$$
+\end{lemma}
+
+\begin{proof}
+	In order for the formula to hold for $n=2,$ we need that	$2 = B_2 = \sum_{k=1}^{2} \binom{1}{k} B_k
+	= \binom{1}{0} B_0 + \binom{1}{1} B_1
+	= B_0 + B_1.$
+	This means we need to set $B_0 = 1.$
+	Suppose $ \{ A_1, A_2, \dotsc, A_k \}$ is a partition of $[n].$
+	Then there is exactly one block, say $A_j$ which contains $n.$
+	Then, $A_j = \{n\} \cup Y$ for some $ Y \subset [n-1].$
+	If $ \lvert A_j \rvert = m,$ then $ \lvert Y \rvert = m-1;$ 
+	so $Y$ could be one of $\binom{n-1}{m-1}$ subsets of $[n-1]$
+	The remaining elements in $[n] \setminus A_j$ could be 
+	partitioned in $B_{n-m}$ ways.
+	Therefore,
+	\begin{align*}
+		B_n ={}&  \sum_{m=1}^{n} \binom{n-1}{m-1} B_{n-m}.
+	\end{align*}
+\end{proof}
+
+This recurrence relaiton which we have obtained for $B_n$ is not 
+a linear recurrence relation because the number of terms is not fixed
+but grows with $n.$
+
+\begin{definition}[Exponential generating function]
+	Given a sequence $ \{ a_n\}_n,$ the \emph{exponential
+	generating function} of $\{a_n\}_{n \in \mathbb{N}}$ is 
+	$$ G(t) = \sum_{n1}^{\infty} \frac{a_n}{n!} t^n $$
+\end{definition}
+
+Consider the epxonential generating function of $\{B_n\}$
+We have
+\begin{align*}
+	G(t) ={}& \sum_{n=0}^{\infty} \frac{B_n}{n!} t^n 
+	\intertext{Differentiaing it with respect to t, we get}
+	G'(t) ={}&  \sum_{n=1}^{\infty} \frac{b_n}{n!} n t^{n-1}\\
+	={}& \sum_{n=1}^{\infty} \frac{B_n}{(n-1)!} t^{n-1} \\
+	={}& \sum_{n=1}^{\infty} \frac{t^{n-1}}{(n-1)!}
+	\sum_{k=1}^{n} \binom{n-1}{k-1} B_{n-k} \\
+	={}& \sum_{n=1}^{\infty} \sum_{k=1}^{n} 
+	\frac{t^{k-1}}{(k-1)!} \frac{B_{n-k} t^{n-k}}{(n-k)!} \\
+	={}& \sum_{n=1}^{\infty} \sum_{k=1}^{\infty} 
+	\frac{t^{k-1}}{(k-1)!} \frac{B_{n-k} t^{n-k}}{(n-k)!}
+	\chi_{[1,n]}(k) \\
+	={}& \sum_{k=1}^{\infty} \sum_{n=1}^{\infty}
+	\frac{t^{k-1}}{(k-1)!} \frac{B_{n-k} t^{n-k}}{(n-k)!}
+	\chi_{[1,n]}(k) \\
+	={}& \sum_{k=1}^{\infty} \frac{t^{k-1}}{(k-1)!}
+	\sum_{n=k}^{\infty} \frac{t^{n-k}}{(n-k)!} B_{n-k} \\
+	\intertext{Replacing $n$ with $n+k$, we get}
+	={}& \sum_{k=0}^{\infty} \frac{t^k}{k!}
+	\sum_{n=0}^{\infty} \frac{t^n}{n!} B_n\\
+	={}& \left( \sum_{k=0}^{\infty} \frac{t^k}{k!} \right) 
+	\left( \sum_{n=0}^{\infty} \frac{t^n}{n!} B_n \right) \\
+	= e^t G(t).
+\end{align*}
+
+Therefore, $G'(t) = e^t G(t)$ which means
+$$[\log G(t)] ' = \frac{G'(t)}{G(t)} = e^t.$$
+So, $$\log G(t) = e^t + k,$$
+where $k$ is some constant in $\mathbb{R}.$
+This means $G(t) = A e^{e^t},$ where $A$ is some positive number.
+We had that $G(0) = B(0) = 1.$  So, $A e^1 = 1$
+and $A = \frac{1}{e}.$
+This means $$G(t) = e^{e^t - 1}.$$
+

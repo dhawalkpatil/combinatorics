@@ -1,0 +1,132 @@
+\emph{18 Sep 24, Wed \hfill Lecture 10}
+
+\begin{definition}[Permutation]
+	Let $S$ be a set. A function $ \sigma \colon S \to S$ is said to be a
+	permutation on $S$ if it is a bijection.
+\end{definition}
+
+The set $ \Omega (S) $ of all the permutations on $S$ is a group when equipped with the
+composition operation.
+That is, for any $\sigma, \tau, \mu$ in $ \Omega(S),$ we have
+$$ \sigma \circ ( \tau \circ \mu) = (\sigma \circ \tau) \circ \mu.$$
+In other words, the composition operation is associative.
+There exists the identity permutation $ \iota $ in $ \Omega(S)$
+satisfying $\iota \circ \sigma = \sigma = \sigma \circ \iota$
+for every $\iota$ in $ \Omega(S).$
+
+The point $a \in S$ is said to be a fixed point of $ \sigma $ if $ \sigma(a) = a.$
+
+The cycle $(a_1, a_2, \dotsc, a_k)$ denotes a permutation defined by:
+$$ \sigma(a_1) = a_2, \sigma(a_2) = a_3, \dotsc, \sigma(a _{k-1} ) = a_k, \sigma(a_k) = a_1$$
+and 
+$$ \sigma(n) = n$$
+for all $t $ in $S$ such that $t \not \in \{a_1, a_2, \dotsc, a_k\}.$
+
+If $\sigma$ and $ \tau$ are disjoint cycles, that is,
+$ \sigma =  (a_1, a_2, \dotsc, a_k)$ and $\tau = (b_1, b_2, \dotsc, b_l) $
+and $a_i \not = b_j$ for any $i = 1, \dotsc, k $ or $ l =1 ,\dotsc, l,$
+then $ \sigma \circ \tau = \tau \circ \sigma.$
+
+\begin{definition}[$S_n$]
+	The set of permutations on the set $\left[ n \right] = \left\{ 1, 2, \dotsc, n \right\} $ is denoted by $S_n.$
+\end{definition}
+
+\begin{theorem}
+	Any permutation $ \sigma $ in $S_n$ can be written as a product of disjoint cycles.
+	Moreover, this decomposition is unique upto reordering of the disjoint cycles.
+\end{theorem}
+
+\begin{proof}
+	Consider the permutation $\sigma$ in $S_n.$
+Since the fixed points of $\sigma$ do not appear in the cyclic decomposition of $\sigma,$
+we induct on $m,$ the number of points in $ \left[ n \right] $ which are not fixed by $ \sigma.$
+In other words, $ m = \lvert \left\{ a \in \left[ n \right] \, : \, \sigma(a) \not = a \right\}  \rvert .$
+If $ m = 2,$ then there are exactly two points $a_1, a_2$ which are not fixed by $ \sigma.$
+Then $\sigma = (a_1, a_2).$
+
+Induction hypothesis:
+Suppose every permutation $\sigma$ in $S_n$ with at most $k-1$ non fixed points
+is a product of disjoint cycles.
+We proceed to prove that $\sigma$ in $S_n$ is a product of disjoint cycles
+if it has $m$ non-fixed points.
+Pick a point $a_0$ in $ \left[ n \right] $ which is not a fixed point of $\sigma.$
+We then examine the elements $$a_1 = \sigma(a_0), a_2 = \sigma^2(a_0), \dotsc, a_m = \sigma^m(a).$$
+As these are all non fixed points of $\sigma,$ at least two of them are the same 
+because these are $m+1$ in number and there are only $m$ non fixed points of 
+$\sigma.$ Suppose $\sigma^j(a_0) = a_j = a_l = \sigma^l(a_0).$
+If $j=0$ and $l=m,$ then 
+$$ a_0, \sigma(a_0), \dotsc, \sigma^{m-1}(a_0) $$
+is an $m$\nobreakdash-cycle.
+Otherwise $ \tau = (a_j, a _{j+1}, \dotsc, a _{l-1})$ is a cycle with $l-1-j$
+non fixed points.
+For $s = \sigma(a_i),$ where $i=j, j+1, \dotsc l-1,$ we have
+$$ \tau^{-1} \circ \sigma (s) = \tau^{-1}(\sigma^{i+1}(a_0)) = \sigma^i(a_0)$$
+so that $\tau^{-1} \circ \sigma$ leaves $a_j, a _{j+1}, \dotsc, a_{l-1}$ fixed.
+It also fixes all the points which are fixed by $ \sigma.$
+Thus, it has $m - l + j < m $ non fixed points.
+It can thus be expressed as a product of disjoint cycles.
+$\tau$ is itself a cycle.
+\end{proof}
+
+\begin{proof}[Alternative proof]
+Pick $a_1$ which is not a fixed point of $\sigma.$
+If $\sigma^j(a) \not = a$ for $j = 1, \dotsc, m-1,$
+then $\sigma = (a, \sigma(a), \sigma^2(a), \dotsc, \sigma^{m-1}(a) )$
+is a cycle of length $m.$
+If, otherwise, $\sigma^j(a) = a$ for some positive integer $j \leq m-1,$
+we have $\sigma = \tau \circ \mu$ 
+where $\tau(a) = \sigma(a)$ and $\tau^l(a) = \sigma^l(a)$
+is a permutation which leaves all points other than those in
+$T = \left\{ a, \sigma(a), \dotsc , \sigma^{j-1}(a) \right\} $
+fixed and $\mu$ is the restriction of $\sigma$ to 
+$\left[ n \right]  \setminus T.$
+That is,
+$$\mu(s) = \begin{cases}
+	s, \quad & \text{ if } s \in T\\
+	\sigma(s), \quad & \text{ otherwise }
+\end{cases} $$
+We know that $\tau$ fixes all points not in $S.$
+We want to show that $\mu$ fixes all points in $S.$
+Note that we can express $a = \sigma^j(a).$
+If $\mu(b) = \sigma^i(a)$ for some element $\sigma^i(a)$ in $T,$
+then $\mu(b) = \sigma(b),$ meaning that $b = \sigma^{i-1}(a) $ is in $T.$
+However, this is not possible because $\mu$ is chosen to fix all points
+in $T.$ We need to prove that $\mu$ is a permutation.
+Given $t,r$ in $ \left[ n \right] ,$ we have
+$ \mu(t) = t $ and $ \mu(r) = r$ if $r,t$ are in $T$
+$ \mu(t) = \sigma(t) \not = \sigma(r) = \mu(r)$ if both $r$ ant $t$ are not in $T,$
+and $ \mu(t) = \sigma(t) \not = r = \mu(r)$ if $r$ is in $T$ but $t$ is not in $T$
+because $\sigma(t)$ is in not in $T.$
+This shows that $\mu$ is injective.
+Let $s$ be in $\left[ n \right].$ If $s = \sigma^i(a)$ for some positive integer $i \leq l,$
+then $s $ is in $T$ and $s = \mu(s),$ otherwise $ s = \sigma(s') = \mu(s') $ for some $s'$ in
+$ \left[ n \right] \setminus T$ because $ \sigma$ is surjective.
+This shows that $ \mu$ is surjective.
+Finally, we have that $ T = \left\{ a, \sigma(a), \dotsc, \sigma^{j-1}(a) \right\} $
+has cardinality $j$ which is less than $m$ and so it leaves more than $n-m$ points fixed.
+
+
+
+\end{proof}
+
+\begin{theorem}[Decomposition into Transpositions]\label{thm:decomposition-into-transpositions}
+	Any permutation $\sigma$ in $S_n$ can be written as a product of transpositions
+	which may not be disjoint.
+\end{theorem}
+
+$$ 
+\left( 
+	\begin{array}{c}
+		(a_{1,1} a_{1,2} \dotsc a_{1,n_1})\\
+		(a_{2,1}  a_{2,2} \dotsc a_{2,n_2})\\
+		\vdots \\
+		(a_{k,1} a_{k,2} \dotsc a_{k,n_k}) 
+	\end{array}
+	\right)
+	= \begin{array}{c}
+		(a_{1,1} a_{1,2}) (a_{1,1} a_{1,3}) (a_{1,1} a_{1,4}) \cdots (a_{1,1} a_{1,n_1})\\
+		(a_{2,1} a_{2,2}) (a_{2,1} a_{2,3}) (a_{2,1} a_{2,4}) \cdots (a_{2,1} a_{2,n_2}) \\
+		 \vdots \\
+		 (a_{k,1} a_{k,2}) (a_{k,1} a_{k,3}) (a_{k,1} a_{k,4}) \cdots (a_{k,1} a_{k,n_2}) \\
+	\end{array}
+	$$

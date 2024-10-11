@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (1) at (-4, 4) {};
+		\node [style=none] (2) at (-4, 4) {};
+		\node [style=none] (3) at (1, 4) {};
+		\node [style=none] (4) at (1, 0) {};
+		\node [style=none] (5) at (-4, 0) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (2.center) to (3.center);
+		\draw (4.center) to (2.center);
+		\draw (3.center) to (5.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

@@ -1,0 +1,103 @@
+
+\noindent
+\emph{Lecture - 18\hfill 09 Oct 24, Wed}
+
+\begin{definition}[Derangements]
+	If $n$ in $\mathbb{N}$ is a positive integer and $\sigma \colon [n] \to [n]$ is a permutation of $[n],$ i.e., $\sigma \in S_n,$ such that
+	$\sigma(i) \not = i,$ for any $i in $ $[n],$ then $\sigma$
+	is said to be a derangement of $[n].$
+\end{definition}
+\begin{theorem}
+	If $d_n$ is the number of derangements of $[n],$ then
+	$$ d_n = \sum_{j=0}^{n}  (-1)^j \binom{n}{j} (n-j)!
+	= \sum_{j=0}^{n} (-1)^j \frac{n!}{j!} $$
+\end{theorem}
+
+\begin{remark}
+	$\sum_{j=0}^{n} \frac{(-1)^j}{j!} $ is an approximation for 
+	$ \frac{1}{e}.$
+\end{remark}
+
+\begin{proof}
+	Let $A = S_n$ and $A_i$ be the set of all permutations $\sigma$
+	in $S_n$ such that $\sigma)i) = i.$ So, according to  the Inclusion Exclusion Principle, the number of permutations which do not fix any elements at all, $d_n,$ is
+	\begin{align*}
+		d_n = {}& \lvert A \setminus \bigcup_{i \in [n]} A_i \rvert \\
+		={}& \sum_{J \subseteq [n]} (-1)^{ \lvert J \rvert} 
+		\left( \lvert A_J \rvert \right) \\
+		={}& \sum_{J \subseteq [n]} (-1)^{ \lvert J \rvert} 
+		(n - \lvert J \rvert )!\\
+		={}& \sum_{j=0}^{n} (-1)^j \binom{n}{j} (n-j)!
+	\end{align*}
+\end{proof}
+
+This theorem has a nice probabilistic interpretation.
+Suppose we have a large number $n$ of individuals in a room who put their 
+umbrellas down at the door when they come in. If each person randomly picks up an umbrella while leaving, then the probability that no person gets their umbrella back is $ \frac{d_n}{n!}$ which tends to $ \frac{1}{e}$ as $n \to \infty.$
+
+\begin{theorem}[Counting Surjective maps]
+	The number of surjective maps from $[n]$ to $[k]$ is 
+	$$ \sum_{j=0}^{k} (-1)^j \binom{k}{j} (k-j)^n.$$
+\end{theorem}
+
+\begin{proof}
+Let $A_i = \left\{ f \colon [n] \to [k] \; \middle| \;
+f(j) \not =  i \, \forall \, j \in [n] \right\}.$
+So, $ \lvert A_i \rvert = (k - \lvert A_j \rvert )^n.$
+By Inclusion Exclusion Principle, we get that the cardinality of $S$, 
+the set of all surjective functions from $[n]$ to $[k].$
+\begin{align*}
+	\lvert S \rvert ={}& \sum_{J \subseteq [k]} (-1)^{ \lvert J \rvert} \lvert A_J \rvert \\
+	={}& \sum_{j=0}^{n} (-1)^j \sum_{\substack{J \subseteq [k] \\
+\lvert J \rvert = j }} (k - j)^n \\
+	={}& \sum_{j=0}^{n} (-1)^j \binom{k}{j} (k-j)^n.
+\end{align*}
+\end{proof}
+
+
+\section{Stirling numbers of the first kind}
+Recall that we hada  factorization of permutations as a product of disjoint cucles (unique upto obvious invariances).
+The unsigned Stirling number of the first kind 
+are 
+$$ \begin{bmatrix} n\\k \end{bmatrix} $$
+which is the number of permutations of $[n]$ which can be written as a product of $k$ disjoint cycles, over positive integers $n,k$ such that $k \leq n .$
+The \emph{Signed Stirling numbers of the first kind are} $$s(n,k) = (-1)^{n-k} \begin{bmatrix} n\\k \end{bmatrix} , $$
+where $k \leq n$ are positive integers.
+
+Note $s(n,n) = 1$ because only the identity permuatation on $[n]$ can be written as a product of $n$ disjoint cycles. Observe that
+$$ \sum_{j=1}^{n}  \begin{bmatrix} n \\ k \end{bmatrix} 
+= \lvert S_n \rvert = n!. $$
+
+\begin{theorem}
+	If $n \geq k$ are positive integers, then 
+	$$ s(n+1, k) = - n \times s(n,k) + s(n, k-1). $$
+\end{theorem}
+
+\begin{proof}
+Consider $$S_{n,k} = \left\{ \sigma \in S_n \; : \;
+\sigma \text{ can be written as a product of }
+k \text{ disjoint cycles } \right\}, $$
+and write $S_{n+1, k} = A \cup B,$ where
+$A = \left\{ \sigma \in S_{n+1, k}  \, : \, \sigma(n+1) = n+1 \right\} .$
+We may write $ \lvert A \rvert = \begin{bmatrix} n \\ k-1 \end{bmatrix} = (-1)^{n-k+1} s(n, k-1) .$
+Given an element $ \sigma$ in $S_{n+1,k} \setminus A,$ we observe that
+$\sigma$ has $k$ cycles in its decomposition. So, we can write $l= 
+\sigma(n+1).$ Then $\sigma \circ (n+1 \; l)$ is in $S_{n,k}.$
+Conversely, if $\sigma \in S_{n,k}$ then for any $l$ in $[n],$
+$\sigma \circ (l \, n+1)$ is in $S_{n+1,k}.$
+To make this observation more ludic, we can write any element of $ \lvert S_{n+1,k} \setminus A \rvert $ 
+as $\sigma = \sigma_1 \sigma_2 \cdots \sigma_k,$ where $\sigma_i$ is 
+a cycle for each $i$ in $[k]$ and $\sigma_i, \sigma_j$ are disjoint for
+disjoint $i,j$ in $k].$ Let $l = \sigma^{-1}(n+1)$ and $i$ be
+the unique element in $[k]$ such that $\sigma_i(l) = n+1.$
+This uniqueness follows from the disjointness of the cycles.
+So, we may write 
+\begin{align*}
+	\sigma ={}& \sigma_1 \cdots \sigma_{i-1} (a_1 \, a_2 \, \dotsc l \, n+1) \sigma_{i+1} \cdots \sigma_n \\
+	={}& \sigma_1 \cdots \sigma_{i-1} (a_1 \, a_2 \, \dotsc l ) (l \, n+1) \sigma_{i+1} \cdots \sigma_n \\
+	={}& \sigma_1 \cdots \sigma_{i-1} (a_1 \, a_2 \, \dotsc l ) \sigma_{i+1} \cdots \sigma_n (l \, n+1).
+\end{align*}
+Here,  $\sigma_1 \cdots \sigma_{i-1} (a_1 \, a_2 \, \dotsc l ) \sigma_{i+1} \cdots \sigma_n $ is in $S_{n,k}.$
+The number of elements in $S_{n+1,k}$ is $-s(n,k)$ and each element in 
+$S(n,k)$ corresponds to $n$ distinct elements in $S(n+1,k)$ arising from $n$ distinct choices of the image $\sigma^{-1}(n+1) = l.$
+\end{proof}

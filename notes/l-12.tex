@@ -1,0 +1,60 @@
+
+\noindent
+\emph{Lecture -12 \hfill 25 Sep 2024, Wed}
+
+\begin{definition}[Power series]
+	A \emph{formal power series} over a field $\mathbb{K}$ in a variable $z$
+	is an expression of the form
+	$$ \sum_{n=0}^{\infty} a_n z^n,$$
+	where $a_n$ is in $\mathbb{K}$ for each positive integer $n.$
+\end{definition}
+The set of all formal power series over $\mathbb{K}$ 
+in a variable $t$ is denoted by $ \mathbb{K} [[t]]].$
+A power series is distinct from a power series in that the latter is defined contigent
+upon convergence.
+
+\begin{definition}[Polynomial]
+	A polynomial in a variable $t$ over a field $\mathbb{K}$ is an expression
+	$$ f(t) = \sum{j=0}^{n} a_j t^j $$
+	where $n$ is a fixed nonnegative integer and $a_n$ is in $\mathbb{K}$ for each integer $j \geq 0$ and $j \leq n.$
+\end{definition}
+
+
+The degree of a polynomial $f(t) = \sum_{j=0}^{n} a_n t^j$ is denoted as
+$\deg(f(t)) = \max \left\{ m \; : \; a_m \not = 0 \right\}.$ The set of polynomials in $t$
+with coefficients in $\mathbb{K}$ is denoted by $\mathbb{K} [t].$
+
+Given a polynomial $f(t) = \sum_{j=0}^{n}  a_n t^n$ over $\mathbb{K}$ in $t,$ we can talk
+about the associated polynomial function, which is independent of the variable $t.$
+Call it $\overline{f}.$ It is defined as 
+$$ \overline{f} (t) = \sum_{j=0}^{n} a_n t^n, \qquad \text{t } \in \mathbb{K} .$$
+Defining an associated power series for a gievn formal power series needs more care
+as it may not converge in $\mathbb{K}.$
+
+Operations on $\mathbb{K} [[t]]$ include
+\begin{enumerate}
+	\item $ \left( \sum_{n=0}^{\infty} a_n t^n \right) 
+	+ \left( \sum_{n=0}^{\infty} b_n t^n \right) 
+	= \sum_{n=0}^{\infty} (a_n + b_n ) t^n.$
+	\item$ \left( \sum_{n=0}^{\infty} a_n t^n \right) 
+		\cdot \left( \sum_{n=0}^{\infty} b_n t^n \right) 
+		 = \sum_{n=0}^{\infty} c_n t^n,$ 
+		 where $c_n = \sum_{k=0}^{n} a_k b_{n-k}.$
+\end{enumerate}
+\begin{example}
+	$$ \frac{1}{1-t} = \sum_{n=0}^{\infty}  t^n $$
+	for $ \lvert t \rvert < 1.$
+\end{example}
+
+\begin{example}[Exponential power series]
+	$$ e^t = \sum_{n=0}^{\infty} \frac{t^n}{n!} $$
+	for all $t \in \mathbb{C}.$
+\end{example}
+
+\begin{example}[Derivative of a power series]
+	given a power series $f(t) = \sum_{n=0}^{\infty} a_n t^n$ for $t \in \mathbb{C},$
+	the derivative $f'$ is well defined with
+	$f'(t) = \sum_{n=0}^{\infty} n a_n t^{n-1} .$
+\end{example}
+
+

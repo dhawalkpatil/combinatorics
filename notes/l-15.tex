@@ -1,0 +1,87 @@
+
+\noindent
+\emph{Lecture - 15 \hfill 02 Oct 24, Wed}
+
+\begin{definition}[Catalan numbers]
+	For any positige integer $n,$ the $n^\text{th}$ Catalan number
+	denoted by $C_n$ is the number of ways of triangulating an
+	$n$ sided polygon.
+\end{definition}
+
+\begin{figure}[h]
+	\centering
+	\incfig{triangulation-hexagon}{0.4}
+	\caption{Triangulation of a hexagon}
+	\label{fig:triangulation-hexagon}
+\end{figure}
+
+A triangulation of a polygon is a way of expressing the polygon as
+a union of non self intersecting triangles.
+
+The recurrence relation for Catalan numbers $C_n$ is 
+$$C_{n+1} = \sum_{k=0}^{n} C_k C_{n-k}.$$
+\begin{proof}
+	Consider any triangulation of an $n+1$ sided polygon and fix one edge of it.
+	
+\end{proof}
+
+This is a nonlinear recurrence relation. To solve it, set
+$$ f(t) = \sum_{n=1}^{\infty} C_n t^n $$
+to be the generating function of the Catalan numbers.
+Note 
+\begin{align*}
+	\sum_{n=1}^{\infty} C_{n+1} t^n
+	 ={}& \sum_{n=1}^{\infty} C_n t^{n-1} \\
+	 ={}& \frac{1}{t} \left[ \sum_{n=0}^{\infty} C_n t^n - C_0 \right] \\
+	 ={}& \frac{1}{t} \left[ F(t) - 1 \right].
+\end{align*}
+ Also,
+ \begin{align*}
+	 \sum_{n=1}^{\infty} C_{n+1} t^n
+	 ={}& \sum_{k=0}^{\infty} i\left( C_k C_{n-k} \right) t^n \\
+	 ={}& \sum_{n=1}^{\infty} \left( \sum_{k=0}^{n} C_k t^k C_{n-k}
+	 t^{n-k}\right) \\
+	 ={}& \sum_{n=1}^{\infty} \sum_{k=1}^{\infty} 
+	 C_k t^k C_{n-k} t^{n-k} \chi_{[1,n]} (k) \\
+	 ={}& \sum_{k=1}^{\infty} \sum_{n=1}^{\infty} 
+	 C_k t^k C_{n-k} t^{n-k} \chi_{[1,n]} (k) \\
+	 ={}& \sum_{k=1}^{\infty} C_k t^k
+	 \left[ \sum_{n=1}^{\infty} C_{n-k} t^{n-k} \chi_{[1,n](k)} \right] \\
+	 ={}& \sum_{k=1}^{\infty} C_k t^{k} \left[ 
+	 \sum_{n=k}^{\infty} C_{n-k} t^{n-k} \right] \\
+	 ={}& \sum_{k=1}^{\infty} C_k t^k
+	 \left[ \sum_{n=0}^{\infty} C_n t^n \right]
+ \end{align*}
+ Multiplying the entire equation by $t,$ we get
+ \begin{align*}
+	 F(t) - 1
+	 ={}& \sum_{n=2}^{\infty} C_{n} t^n\\
+	 ={}& t \sum_{n=1}^{\infty} C_{n+1}t^n\\
+	 ={}& t \sum_{k=1}^{\infty} C_n t^n \sum_{n=1}^{\infty} C_n t^n
+	 \\
+	 ={}& t F(t)^2
+ \end{align*}
+
+ This means $t F(t)^2 - F(t) +1 = 0.$
+ This is a quadratic equation for $F(t).$
+ Solving it gives us
+ $$ F(t) = \frac{1 \pm \sqrt{1 - 4t}}{2t}. $$
+ As we have $$ \sqrt{1 - 4t} =
+ \sum_{n=1}^{\infty} \binom{1/2}{n} (-4t)^n
+ = 1 - 2t - 2t^2 - 4t^3 - 10 t^4 - \cdots,
+ $$ where $$ \binom{1/2}{n} = \frac{ \frac{1}{2} ( \frac{1}{2} - 1 )
+\cdots ( \frac{1}{2} -n + 1)}{n!}.$$
+Supopse 
+$$ F(t) = \frac{1 - \sqrt{1 - 4t}}{2t}
+ = \frac{1}{t} - 1 - t - 2t^2 - 5 t^3 - \cdots$$
+Due to the $1/t$term, this is not a power series.
+So we must have
+\begin{align*}
+	F(t) ={}& \frac{1 - \sqrt{4 - t}}{2t}\\
+	={}& \frac{1 - 1 \sum_{n=1}^{\infty} \binom{1/2}{n} (-4t)^2}
+	{2t} \\
+	={}& \sum_{n=1}^{\infty}  - \frac{\binom{1/2}{n+1} (-4t)^{n+1}}{2} t^n.
+\end{align*}
+
+By comparing the terms of the power series, we get that
+$$C_n = - \frac{\binom{1/2}{n+1} (-4)^{n+1} }{2} $$
