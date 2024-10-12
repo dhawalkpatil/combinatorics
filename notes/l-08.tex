@@ -13,9 +13,12 @@ By the preceeding lemma, $G$ contains a cycle $C$ because every vertex has degre
 Let $G'$ be the graph obtained by removing this cycle form $G.$
 
 Let $\tilde{G}$ be a connected component of $G'.$
-Then $\tilde{G}$ is trivially connected, and for all vertives $v$ in $V(\tilde{G},$
-the $\deg_{\tilde{G}}(v) = \deg{G'}(v),$ because no edge of $\tilde{G}$ connects to a
-vertex outside it.
+Then $\tilde{G}$ is trivially connected, and for all vertices $v$ in $V(\tilde{G}),$
+then the degree of a vertex $v$ in the induced subgraph $G'$ is $$ \deg_{G'}(v) =
+\begin{cases}
+	\deg_G(v) & \text{ if } v \not \in C \\
+	\deg_G(v) & \text{ if } v \in C \\
+\end{cases}.$$
 Thus, each vertex of $\tilde{G}$ is even and it satisfies the induction hypothesis.
 It is thus Eulerian.
 
