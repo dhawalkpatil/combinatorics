@@ -1,19 +1,20 @@
 
-\noindent
-\emph{Lecture - 15 \hfill 02 Oct 24, Wed}
+\lecture{Lecture - 15 \hfill 02 Oct 24, Wed}
 
 \begin{definition}[Catalan numbers]
-	For any positige integer $n,$ the $n^\text{th}$ Catalan number
-	denoted by $C_n$ is the number of ways of triangulating an
+	For any positive integer $n,$ the $n^\text{th}$ Catalan number
+	denoted by $C_n$ is the number of ways of triangulating a convex
 	$n$ sided polygon.
 \end{definition}
 
-\begin{figure}[h]
-	\centering
-	\incfig{triangulation-hexagon}{0.4}
-	\caption{Triangulation of a hexagon}
-	\label{fig:triangulation-hexagon}
-\end{figure}
+\begin{center}
+	\begin{figure}[h]
+		\centering
+		\incfig{triangulation-hexagon}{0.4}
+		\caption{Triangulation of a hexagon}
+		\label{fig:triangulation-hexagon}
+	\end{figure}
+\end{center}
 
 A triangulation of a polygon is a way of expressing the polygon as
 a union of non self intersecting triangles.
@@ -70,14 +71,14 @@ Note
  \sum_{n=1}^{\infty} \binom{1/2}{n} (-4t)^n
  = 1 - 2t - 2t^2 - 4t^3 - 10 t^4 - \cdots,
  $$ where $$ \binom{1/2}{n} = \frac{ \frac{1}{2} ( \frac{1}{2} - 1 )
-\cdots ( \frac{1}{2} -n + 1)}{n!}.$$
-Supopse 
+\cdots ( \frac{1}{2} -n + 1)}{n!},$$
+the first solution yields
 $$ F(t) = \frac{1 - \sqrt{1 - 4t}}{2t}
  = \frac{1}{t} - 1 - t - 2t^2 - 5 t^3 - \cdots$$
-Due to the $1/t$term, this is not a power series.
+Due to the $1/t$ term, this is not a power series.
 So we must have
 \begin{align*}
-	F(t) ={}& \frac{1 - \sqrt{4 - t}}{2t}\\
+	F(t) ={}& \frac{1 - \sqrt{1 - 4t}}{2t}\\
 	={}& \frac{1 - 1 \sum_{n=1}^{\infty} \binom{1/2}{n} (-4t)^2}
 	{2t} \\
 	={}& \sum_{n=1}^{\infty}  - \frac{\binom{1/2}{n+1} (-4t)^{n+1}}{2} t^n.

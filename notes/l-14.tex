@@ -1,6 +1,4 @@
-
-\noindent
-\emph{Lecture - 14 \hfill 30 Sep 24, Mon}
+\lecture{Lecture - 14 \hfill 30 Sep 24, Mon}
 
 \section{General Linear Recurrence Relations}
 
@@ -64,8 +62,42 @@ as the starting point, respectively ending point, of $f.$
 	$\mathbb{R}^2.$
 \end{definition}
 
-\incfig{polygons}{0.4}
+\begin{center}
+	\incfig{polygons}{0.4}
+\end{center}
 
+
+\begin{figure}[h]
+\centering
+	\begin{tikzpicture}
+		\tikzstyle{vertex}=[circle,fill=black!25,minimum size=12pt,inner sep=2pt]
+	shift={(3,4)}
+	\newcommand*{\coords}{\foreach \x in {1,...,5}{
+		\node[vertex] (g_\x) at (18+72*\x:2) {};
+}}
+	\begin{scope}[shift={(-3,4)}]
+		\coords
+		\draw (g_1) -- (g_2) -- (g_3) -- (g_4) -- (g_5) -- (g_1) (g_1) -- (g_3) (g_1) -- (g_4);
+	\end{scope}
+	\begin{scope}[shift={(3,4)}]
+		\coords
+		\draw (g_1) -- (g_2) -- (g_3) -- (g_4) -- (g_5) -- (g_1)(g_2) -- (g_5) (g_2) -- (g_4); 
+	\end{scope}
+	\begin{scope}[shift={(-5,0)}]
+		\coords
+		\draw (g_1) -- (g_2) -- (g_3) -- (g_4) -- (g_5) -- (g_1) (g_3) -- (g_1) (g_3) -- (g_5);
+	\end{scope}
+	\begin{scope}[shift={(0,0)}]
+		\coords
+		\draw (g_1) -- (g_2) -- (g_3) -- (g_4) -- (g_5) -- (g_1) (g_4) -- (g_2) (g_4) -- (g_1);
+	\end{scope}
+	\begin{scope}[shift={(5,0)}]
+		\coords
+		\draw (g_1) -- (g_2) -- (g_3) -- (g_4) -- (g_5) -- (g_1) (g_5) -- (g_3) (g_5) -- (g_2);
+	\end{scope}
+	\end{tikzpicture}
+	\caption{Triangulations of a pentagon}
+\end{figure}
 
 $C_2 = 2,$ $C_3 = 5,$ $C_4 = 14,$ $C_5 = 42,$ $C_6 = 132,$ $C_7 = 429,$
 $C_8 = 1430.$

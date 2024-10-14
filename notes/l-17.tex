@@ -1,6 +1,4 @@
-
-\noindent
-\emph{Lecture - 17\hfill 07 Oct 24, Mon}
+\lecture{Lecture - 17\hfill 07 Oct 24, Mon}
 
 \section{The Inclusion-Exclusion Principle}
 The simplest possible manifestation of the inclusion exclusion Principle
@@ -34,16 +32,16 @@ for any two finite substes $A$ and $B$ of a set $X.$
 	\binom{ \lvert S_a \rvert}{j} \\
 	={}& \sum_{a \in B} \sum_{j=1}^{ \lvert S_a \rvert} (-1)^j
 \sum_{\substack{ J \subseteq [S_a]\\ \lvert J \rvert = j}} 1 \\
-	\intertext{(the binomial coefficient is simply the number of ways of choosing $k$ sized subsets from $S_a.$)}
+	\intertext{(the binomial coefficient is simply the number of ways of choosing $j$ sized subsets from $S_a.$)}
 	={}& \sum_{a \in B} \sum_{j=1}^{ \lvert S_a \rvert}
 \sum_{\substack{ J \subseteq [S_a]\\ \lvert J \rvert = j}} (-1)^{ \lvert J \rvert} \\
 	={}& \sum_{a \in B} \sum_{J \subseteq [S_a]} (-1)^{ \lvert J \rvert} \\ 
-	={}& \sum_{a \in b} \sum_{j \subseteq [n]} (-1)^{ \lvert J \rvert} \chi_1(a) \cdots \chi_n(a) \\
-	\intertext{(because the product $\chi_1(a) \cdots \chi_n(a)$
-		is $1$ if $a$ is in $\bigcap_{i \in S_a} A_i$ and
+	={}& \sum_{a \in b} \sum_{J \subseteq [n]} (-1)^{ \lvert J \rvert} \prod_{i \in J} \chi_i(a) \\
+	\intertext{(because the product $\prod_{i \in J} \chi_i(a) $
+		is $1$ if $a$ is in $\bigcap_{i \in J} A_i$ and
 	$0$ otherwise)}
-	={}& \sum_{j \subseteq [n]} (-1)^{ \lvert j \rvert}
-	\sum_{a \in b} \chi_1(a) \cdots \chi_n(a) \\
+	={}& \sum_{J \subseteq [n]} (-1)^{ \lvert J \rvert}
+	\sum_{a \in B} \chi_1(a) \cdots \chi_n(a) \\
 	\intertext{(because finite double summations can be interchanged.)}
 	={}& \sum_{J \subseteq [n]} (-1)^{ \lvert J \rvert}
 	\lvert \bigcap_{j \in J} A_j \rvert .

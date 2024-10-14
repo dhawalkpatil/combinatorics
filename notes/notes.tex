@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{amsthm,amssymb,mathtools}
-\usepackage{tkz-graph}
 \usepackage{tikz}
+\usetikzlibrary{graphs}
 
 \usepackage{import}
 \usepackage{xifthen}
@@ -23,6 +23,7 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{example}{Example}
 
+\newcommand{\lecture}[1]{\subsubsection*{#1}}
 \begin{document}
 \input{l-08.tex}
 \input{l-09.tex}
@@ -36,6 +37,7 @@
 \input{l-17.tex}
 \input{l-18.tex}
 \input{l-19.tex}
+\input{l-20.tex}
 \input{graphs.tex}
 
 \end{document}

@@ -1,7 +1,4 @@
-
-
-\noindent
-\emph{Lecture - 19\hfill 11 Oct 24, Fri}
+\lecture{Lecture - 19\hfill 11 Oct 24, Fri}
 
 \begin{definition}[The falling factorial]
 	For any positive integer $n,$ we wdefine the \emph{falling factorial} to be 
@@ -10,7 +7,7 @@
 
 
 \begin{definition}[The rising factorial]
-	For any positive integer $n,$ we wdefine the \emph{rising factoria} to be 
+	For any positive integer $n,$ we define the \emph{rising factoria} to be 
 	$$ (t)^n = t(t+1) \cdots (t + n-1).$$
 \end{definition}
 
@@ -20,7 +17,7 @@
 \end{remark}
 
 \begin{remark}
-	$ t^{(n)} = (-1) (-t)_n $
+	$ t^{(n)} = (-1)^n (-t)_n $
 \end{remark}
 
 
@@ -70,11 +67,11 @@ Suppose the formula is true for some $n$ in $\mathbb{N}.$ Then,
 Any partition of $[n]$ into $k$ nonempty blocks is related to the
 surjective functions from $[n]$ to $[k].$ Given a surjective function
 $f \colon [n] \to [k],$ the sets $\{ f^{-1}(1), \dotsc, f^{-1}(k)\}$
-forms a partition of $[n]$ into $k$ non empty blocks.
+form a partition of $[n]$ into $k$ non empty blocks.
 
-Conversely, given a partition $A_1, A_2, \dotsc, A_k$ of $[n]$ into $k$ nonempty blocks and $\sigma$ in $S_k,$ $f \colon [n] to [k]$ defined by
+Conversely, given a partition $A_1, A_2, \dotsc, A_k$ of $[n]$ into $k$ nonempty blocks and $\sigma$ in $S_k,$ $f \colon [n] \to [k]$ defined by
 $f(i) = \sigma(j)$ such that $i$ is in $A_{j}$ is a surjective function.
-Thus, we have proved the theorem
+Thus, we have proved the following theorem
 \begin{theorem}
 	If $n \geq k,$ then 
 	\begin{align*}
@@ -112,16 +109,16 @@ $$	 t^n = \sum_{k \in [n]}
 \begin{definition}
 	A vector space $V$ over a field $\mathbb{F},$ is a set
 	$A$ equipped with two operations $+ \colon A \times A \to V$ usually called `addition' and
-	$\cdot \colon \mathbb{F} \times A \to A$ called the `scalar multiplication' such that for any $\alpha, \beta$ in
+	$\ \cdot \  \colon \mathbb{F} \times A \to A$ called the `scalar multiplication' such that for any $\alpha, \beta$ in
 	$\mathbb{F}$ and $x,y$ and $z$ in $A,$
 	\begin{enumerate}
 		\item $\alpha(\beta x) = (\alpha \beta)x,$
 		\item $(\alpha + \beta) x = \alpha x + \beta x,$
 		\item $\alpha(x + y) = \alpha x + \alpha y,$
-		\item $(\alpha + \beta) x = \alpha x + \beta x$
-		\item $ 1 x = x$
+		\item $(\alpha + \beta) x = \alpha x + \beta x,$
+		\item $ 1 x = x,$
 		\item $x+y = y+x,$
-		\item $(x+y)+z = x + (y+z)$
+		\item $(x+y)+z = x + (y+z),$
 	\end{enumerate}
 	where $1$ and $0$ are the multiplicative and additive identity of $\mathbb{F}$ and there exists $\mathbf{0}$ in $A$ such that $0 x = \mathbf{0}$
 	for all $x$ in $A.$
@@ -134,7 +131,7 @@ The vector space of polynomials over an unkown $t$ with coefficients
 in $\mathbb{F},$ is a vector space over $\mathbb{F}.$
 
 Let $\mathcal{P}_n$ be the (sub)space of all polynomials in
-$\mathbb{F}[t]$ of degree at most $n.$ Then $\mathcal{P}_n.$ 
+$\mathbb{F}[t]$ of degree at most $n.$ Then  
 the dimension of $\mathcal{P}_n$ is $n+1$ because $\{ 1, t, t^2,
 \dotsc, t^n \}$ forms a basis of it.
 
@@ -145,4 +142,14 @@ by the relation between $(t)_i$ and  $t^{(i)}.$
 
 If $A = \{ s(i,j) \}$ and $ B = \{S(i,j) \} $ are $n \, \times  \, n$
 matrices, then $A = B^{-1}.$
+
+The convention is to write 
+$$\begin{bmatrix}n\\0\end{bmatrix} =
+\begin{Bmatrix}n\\0\end{Bmatrix} = 
+\begin{cases}
+0 & \text{ if } n \in \mathbb{N} \\
+1 & \text{ if } n = 0 \\
+\end{cases}. $$
+
+k
 

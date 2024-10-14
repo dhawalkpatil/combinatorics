@@ -1,6 +1,4 @@
-
-\noindent
-\emph{Lexture 16 \hfill 04 Oct 204, Fri}
+\lecture{Lecture 16 \hfill 04 Oct 204, Fri}
 
 \begin{definition}[Double Factorial]
 	For any odd integer $n,$ we define the \emph{double factorial}
@@ -121,7 +119,7 @@ Consider the epxonential generating function of $\{B_n\}$
 We have
 \begin{align*}
 	G(t) ={}& \sum_{n=0}^{\infty} \frac{B_n}{n!} t^n 
-	\intertext{Differentiaing it with respect to t, we get}
+	\intertext{Differentiating it with respect to $t,$ we get}
 	G'(t) ={}&  \sum_{n=1}^{\infty} \frac{b_n}{n!} n t^{n-1}\\
 	={}& \sum_{n=1}^{\infty} \frac{B_n}{(n-1)!} t^{n-1} \\
 	={}& \sum_{n=1}^{\infty} \frac{t^{n-1}}{(n-1)!}
@@ -141,7 +139,7 @@ We have
 	\sum_{n=0}^{\infty} \frac{t^n}{n!} B_n\\
 	={}& \left( \sum_{k=0}^{\infty} \frac{t^k}{k!} \right) 
 	\left( \sum_{n=0}^{\infty} \frac{t^n}{n!} B_n \right) \\
-	= e^t G(t).
+	={}& e^t G(t).
 \end{align*}
 
 Therefore, $G'(t) = e^t G(t)$ which means
