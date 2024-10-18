@@ -1,0 +1,80 @@
+
+\lecture{Lecture - 22\hfill 18 Oct 24, Fri}
+
+\begin{definition}[Spectrum]
+	The spectrum $\operatorname{Spec}(G)$ of a graph $G$ is the set
+	of characteristic values of its adjacency matrix 
+	including multiplicity.
+\end{definition}
+The $\ker(A - \lambda I ) = P^{-1}\ker( P A P^{-1} - \lambda I) P$ which
+implies that the $\operatorname{Spec}(A) = \operatorname{Spec}(P A P^{-1})$
+So, $\operatorname{G_1}$ is the same as $\operatorname{G_2}$ for similar
+graphs $G_1$ and $G_2.$
+
+\tikz\graph[layered layout]{
+	1 -- 2 -- 3 -- 4 -- 1, 5
+};
+
+
+\tikz\graph[layered layout]{
+	1, {2--4}--
+	{3,5}
+};
+
+Let $K_n$ be the complete graph on $n$ vertices. Then its adjacency 
+matrix $A(K_n) $ has 1 everywhere except 0 on every position in the diagonal.
+In other words $A (K_n) = J_n - I_n,$ where $I_n$ is the $n \times  n $ identity
+matrix and $J_n = \mathbf{1} \mathbf{1}^T,$ where
+$\mathbf{1} = \begin{bmatrix}1 \\ 1 \\ \vdots \\ 1 \end{bmatrix}.$
+Since  $J_n$ is a rank $1$ matrix, it has $0$ as a characteristc value
+with multiplicity $n-1$ and
+$J_n \mathbf{1} = (\mathbf{1} \mathbf{1}^T) \mathbf{1}
+= \mathbf{1}(\mathbf{1}^T \mathbf{1}) = n \mathbf{1}$
+implying that $\mathbf{1}$ is a characteristic vector of $J_n$
+with characteristic value $n$ and multiplicity 1.
+So, the characteristic vlaues of $A(K_n)$ are $0$ with multiplicity $1$
+and $-1$ with multiplicity $n-1.$
+
+The complete bipartite graph on $r,s$ vertices, $K_{r,s}$
+has adjacency matrix $$A(K_{r,s}) 
+= \begin{bmatrix}0_{r,r} 1_{r,s} \\ 1_{s,r} 0_{s,s} \end{bmatrix}$$
+$A(K_{r,s})$ has characteristic values $\lambda_1 > \lambda_2.$ As 
+$\operatorname{trace}(A(K_{r,s})) = \lambda_1 + \lambda_2.$
+Also, $\operatorname{trace}((A(K_{r,s}))^2) =  \lambda_1^2 + \lambda_2^2$ is the number of closed walks of length $2$ in $K_{r,s}$ which is
+$\lvert E(K_{r,s}) \rvert^2$ because the only closed walks of length $2$
+are those that walk along an edge and then back along it.
+
+SO WHAT??? COMPLETE THIS!!!
+
+Given the spectrum of a graph, we would like to know whether something
+may be said about the graph. For bipartite graphs, the answer is true.
+
+\begin{theorem}[Characterisation of spectrum of bipartite graphs]
+	If $G$ is a bipartite graph having a characteristic value 
+	$\lambda$ with multiplicity $n,$ then $-\lambda$ is also
+	a characteristic value with multiplicity $n.$
+\end{theorem}
+\begin{proof}
+	For any bipartite graph $G,$ the adjacency matrix $A(G)$
+	is of the form
+	$$\begin{bmatrix}
+		0_{r,r} & B _{r,s} \\ B^T_{s,r} & 0_{s,s} 
+	\end{bmatrix}.$$
+	If $\lambda > 0$ is a characteristic value of $A(G),$ then there
+	exists $w = \begin{bmatrix} u _{r,1} \\ v_{s,1} \end{bmatrix}$
+	such that
+	$$\begin{bmatrix}
+		0_{r,r} & B _{r,s} \\ B^T_{s,r} & 0_{s,s} 
+	\end{bmatrix}
+	\begin{bmatrix} u _{r,1} \\ v_{s,1} \end{bmatrix}
+	=\begin{bmatrix}
+		B v \\ B^T u
+	\end{bmatrix}
+	 =  \lambda \begin{bmatrix} u _{r,1} \\ v_{s,1} \end{bmatrix}.$$
+	 CORRECT THIS!!
+	 In other words, $B v = \lambda u$ and $B^T v = \lambda u.$
+	 If the multiplicity of $\lambda$ is $m,$ there are 
+	 $m$ linearly independent characteristic vectors for $\lambda,$
+	 we deduce there are also $m$ linearly independent vectors 
+	 obtained by negating one 
+\end{proof}
