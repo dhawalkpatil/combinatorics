@@ -1,0 +1,117 @@
+\lecture{Lecture - 23 \hfill 21 Oct 24, Mon}
+
+\begin{theorem}
+	If $ \lambda_1,$ $ \lambda_2, \dotsc, \lambda_n$ are characterstic
+	values of  
+	such that $ \lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_n.$
+	The following statements are equivalent
+	
+	\begin{enumerate}
+		\item $G$ is bipartite.
+		\item The spectrum of $G$ is symmetric about $0.$
+		\item If $n$ is even, the characterstic polynomial $\det(t I_n - a)$ of $A$ is a polynomial in $t^2.$
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	$(1) \implies (2)$ Was shown in the previous lecture.	
+
+	$(2) \implies (3)$ If $n$ is even, then the multiplicity of $0$
+	as a characteristic value is even (or $0$) because the nonzero
+	characteristic values appear in pairs. As the adjacency matrix
+	is symmetric, it has $n$ characteristic values and hence the
+	characteristic polynomial $\det(t I_n - A) = \prod_{j=1}^{n} (t - \lambda_i)$
+	is of the form $t^{2j} \prod_{ \lambda \in \operatorname{spec}(G) \setminus\{0\} } (t^2 - \lambda^2) .$
+
+	$(3) \implies (2)$  We are given that
+	$\det(t I_n - A)$ is of the form $t^l f(t)$ where
+	$f(t)$ is a polynomial in $t^2.$ It can thus be 
+	factorised into a product of the form 
+	$ t^l \prod_{j=1}^{n/2 - l} (t^2 - a_j)$
+	where $l$ is the mulitiplicity of $0$ as a characteristic value.
+	Here, $a_j <0$ for each $j$ because all characteristic values
+	of $A$ are real.
+
+	$(2) \implies (4)$
+	COMPLETE THIS!!
+
+	$(4) \implies (1)$ 
+	Recall that $\sum_{i=1}^{n} \lambda_i^l$ is the number of closed
+	walks in $G$ of length $l.$ As $\det(t I_n - A)$ is a polynomial
+	in $t^2,$ we get that $\sum_{i=1}^{n} \lambda_i^l$ is zero for
+	all $l.$ So, $G$ has no closed walks of odd length. As we had 
+	characterised that a graph is bipartite if and only if it has no
+	closed walks of odd length, we realise that $G$ is bipartite.
+\end{proof}
+
+\section{Using the Spectrum to estimate the diameter}
+For a subset $A$ of $\mathbb{R}^n,$ or a any metric space $(S,\rho),$
+we define the diameter of $A$ by
+$$ \operatorname{diam}(A) = \sup_{x,y \in A} \rho(x,y). $$
+Similarly,
+\begin{definition}
+	For a connected graph $G,$ we define the diameter of $G$ is 
+	$$\operatorname{diam}(G) = \max_{x,y \in V} d(x,y),$$
+	where $d(x,y)$ is the minimum distance between vertices $x$ and
+	$y$ given my $\min\{ \lvert w \rvert \, : \, w \text{ is a walk
+	from } x \text{ to } y \}.$
+\end{definition}
+
+\begin{theorem}
+	If $G$ is a connected graph whose adjacency matrix has $r$ 
+	distinct characteristic values, then $\operatorname{diam}(G)
+	\leq r-1.$
+\end{theorem}
+
+\begin{remark}
+	If some characteristic values have a (relatively) high
+	multiplicity, then there are only a few distinct characteristic
+	values which means $\operatorname{diam}(G)$ is small.
+\end{remark}
+For a matrix $A,$ in $A(n,n \mathbb{R}),$ the minimal
+polynomial of $A$ is the monic polynomial $m$ in $\mathbb{R}[t]$
+of smallest degree such that $m(A) = 0.$
+Note that $m(t) = \prod_{i \in [r]} (t - \Theta_i),$  where
+$\Theta_1, \dotsc, \Theta_r$ are the distinct characteristic values
+of $A,$ if and only if $A$ is diagonalisable, as it is if $A$ is
+symmetric.
+\begin{definition}
+	The \emph{Adjacency Algebra} of the graph $G$ is 
+	$$ \mathcal{A}(G) = \left\{ p(A) \, : \, p \in \mathbb{R}[t] 
+	\right\} $$
+	where $A$ is the adjacency matrix of $G.$
+\end{definition}
+
+\begin{remark}
+	$\mathcal{A}(G)$ is a subset of the vector space of
+	$n \times n$ symmetric matrices. In fact, it is a linear 
+	subspace of the space of $n \times n$ symmetric matrices.
+	In fact, it is a linear subspace, moreoever an algebra.
+\end{remark}
+
+If $A$ is a diagonalisable matrix with $r$ distinct characteristic 
+values, then the dimension of $\mathcal{A}(G)$ as a vector space is $r.$
+\begin{proof}
+	Let $d$ be the diameter of $G.$ We want to show that
+	$I_n, A, A^2, \dots, A^d$ are linearly independent matrices.
+	This will prove the theorem.
+	Given a linear combination
+	$\alpha_0 I_n + \alpha_1 A + \cdots + \alpha_k A^k,$
+	with $k \leq d,$
+	there exist vertices $x$ and $y$ in $V$ with $d(x,y) = k.$
+	Such a pair of vertices must exist because there is a path of length $d$ in $G.$
+	Any two vertices $x,$ $y$ in any path separated by $k$ edges
+	must satisfy $d(x,y) = k.$
+	In other words, there does not exist a shorter path
+	from $x$ to $y.$ So, we get that the $(x,y)^\text{th}$ entry 
+	of the linear combination
+	is $$ \alpha_0 I_n(x,y) + \alpha_1 A(x,y) + \alpha_2 A^2(x,y)
+	+ \cdots + \alpha_k A^k(x,y).$$
+	Here $A^i(x,y)$ is the number of walks of length $i$ from $x$
+	to $y$ for each $i.$ As there are no walks of length less than
+	$d$ from $x$ to $y,$ we must have $A(x,y),$ $A^2(x,y), \cdots,
+	A^{k-1}(x,y)$ are all zero. Also, $x,$ $y$ are distinct because
+	they are two vertices separated by $k$ edges on a path. So,
+	$I_n(x,y) = 0.$ Thus, $\alpha_k A^k(x,y)$ is zero.
+\end{proof}
+
