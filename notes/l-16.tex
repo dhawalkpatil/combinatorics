@@ -31,7 +31,12 @@ $$ n!! = \frac{(2k)!}{k! 2^k}.$$
 
 Using this expression for $\binom{1/2}{n},$ we can rephrase the 
 expression for Catalan numbers in the following way.
-$C_n$
+\begin{align*}
+	C_n ={}& \frac{\binom{1/2}{n+1} (-4)^{n+1}}{2} \\
+	={}& - \frac{1}{2} \frac{(-1)^n}{(n+1) 2^{2n+1}} \binom{2n}{n}
+	(-4)^{n+1} \\
+	={}& \frac{1}{n+1} \binom{2n}{n} .\\
+\end{align*}
 
 \section{How does $C_n$ behave as $n$ gets large?}
 From Stirling's Formula we know that
@@ -39,17 +44,17 @@ $n! \sim \sqrt{2 \pi n} \left( \frac{n}{e} \right) ^n.$ We can deduce
 $$ \binom{2n }{n} = 
 \frac{(2n)!}{(n!)^2} \sim
 \frac{\sqrt{2\pi 2n} \left( \frac{2n}{e}^{2n} \right) }{ 2\pi n (
-\frac{n}{e}^{2n}}.$$
+\frac{n}{e})^{2n}}.$$
 which implies that
 $\binom{2n}{n} \sim \frac{1}{\sqrt{\pi n}} 2^{2n}.$
 Therefore
 $$ C_n = \frac{1}{(n+1)} \binom{2n}{n}
 \sim \frac{4^n}{(n+1) \sqrt{\pi n}}
-\sim \frac{4^n}{ \pi n^{3/2}}.$$
+\sim \frac{4^n}{ \sqrt{\pi} n^{3/2}}.$$
 In other words,
-$\log_2 C_n = 2n - \frac{3}{2} \log_2 n - \frac{1}{2} \pi + o(1).$
+$\log_2 C_n = 2n - \frac{3}{2} \log_2 n - \frac{1}{2} \log_2 \pi + o(1).$
 
-\section{Aside: Another use for Cataln Numbers}
+\section{Aside: Another use for Catalan Numbers}
 For any positive integer $n,$ $C_n$ also represents the number of ways
 of breaking down the sum of $n+1$ numbers into pairwise operations.
 

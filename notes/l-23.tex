@@ -53,7 +53,7 @@ Similarly,
 	For a connected graph $G,$ we define the diameter of $G$ is 
 	$$\operatorname{diam}(G) = \max_{x,y \in V} d(x,y),$$
 	where $d(x,y)$ is the minimum distance between vertices $x$ and
-	$y$ given my $\min\{ \lvert w \rvert \, : \, w \text{ is a walk
+	$y$ given by $\min\{ \lvert w \rvert \, : \, w \text{ is a walk
 	from } x \text{ to } y \}.$
 \end{definition}
 
@@ -71,8 +71,8 @@ Similarly,
 For a matrix $A,$ in $A(n,n \mathbb{R}),$ the minimal
 polynomial of $A$ is the monic polynomial $m$ in $\mathbb{R}[t]$
 of smallest degree such that $m(A) = 0.$
-Note that $m(t) = \prod_{i \in [r]} (t - \Theta_i),$  where
-$\Theta_1, \dotsc, \Theta_r$ are the distinct characteristic values
+Note that $m(t) = \prod_{i \in [r]} (t - \theta_i),$  where
+$\theta_1, \dotsc, \theta_r$ are the distinct characteristic values
 of $A,$ if and only if $A$ is diagonalisable, as it is if $A$ is
 symmetric.
 \begin{definition}
@@ -97,7 +97,7 @@ values, then the dimension of $\mathcal{A}(G)$ as a vector space is $r.$
 	This will prove the theorem.
 	Given a linear combination
 	$\alpha_0 I_n + \alpha_1 A + \cdots + \alpha_k A^k,$
-	with $k \leq d,$
+	with $k \leq d,$ and $\alpha_k \not 0,$
 	there exist vertices $x$ and $y$ in $V$ with $d(x,y) = k.$
 	Such a pair of vertices must exist because there is a path of length $d$ in $G.$
 	Any two vertices $x,$ $y$ in any path separated by $k$ edges
