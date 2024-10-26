@@ -1,0 +1,79 @@
+\lecture{Lecture - 25\hfill 25 Oct 24, Fri}
+
+\begin{theorem}
+	asdfghjkl
+\end{theorem}
+\begin{proof}
+	Let $i,j$ be in $V.$ If $i=j,$ then $L(i,j)$ is the degree
+	$\deg(i).$ 
+	\begin{align*}
+		(N N^T) (i,i)
+		={}& \sum_{e \in E} N(i,e) N^T(e,i) \\
+		={}& \sum_{e \in E} N(i,e)^2 \\ 
+		={}& \sum_{e \in E} \mathbf{1}_{i \in E} \\
+		={}& \deg(i).
+	\end{align*}
+	So, $(NN^T)(i,i) = L(i,i)$ for all $v$ in $V.$
+	If otheriwse $i$ is not $j,$ then we have two cases.
+	Case 1: $i$ is in $N(j):$ $L(i,j) = -1.$
+	If $\tilde{e}$ is $\{i,j\},$ then
+	$N(i, \tilde{e}) N^T( \tilde{e}, j) = 
+	N(i, \tilde{e}) = N(j, \tilde{e}) = -1.$
+
+	Case 2: $i$ is not in $N(j),$ that is $i$ is not a neighbour
+	of $j,$ $L(i,j) = 0.$ So
+\begin{equation*}
+	(NN^T)(i,j) = \sum_{e \in E} N(i,e) N(j,e)  = 0.
+\end{equation*}
+
+To prove the second statement, we observe that $L = D - A$ is real
+and symmetric; So $L$ has real characteristic values. Then $L v = 
+\lambda v.$ for some characteristic vector $v$ associated with $\lambda.$
+In other words, 
+\begin{align*}
+	(NN^T)v ={}& \lambda v \\
+	\lambda \lVert v \rVert^2 = v^T (N N^T v) ={}& v^T (\lambda v)\\
+	={}& (v^T N)(N^T v) \\
+	={}& (N^T v)^T (N^T v)\\
+	={}& \lVert N^T v \rVert^2 \geq 0. 
+\end{align*}
+Since $v$ is not the zero vector, by definition of characteristic 
+vectors, we get that $\lambda$ is non negative.
+
+Now we prove the third statement. We already know that $0$ is a 
+characteristic value of $L$ with characteristic vector $\mathbf{1},$
+the vector with $1$ in all entries.
+We already know that $0$ is a characteristic value of $L,$ and 
+$\mathbf{1}$ is a corresponding characteristic vector of it.
+We proceed to prove that if $G$ is connected then the geometric
+multiplicity of $o$ is 1. As the matrix $L$ is symmetric, it is 
+diagonalisable and hence the algebraic multiplicity is the
+geometric multiplicity. We have
+\begin{align*}
+	0 = {}& \frac{\lVert N^T v  \rVert^2}{\lVert v \rVert^2} \\
+	={}& \frac{\sum_{ \{i,j \} \in E} \left\{ v(i) - v(j) \right\} ^{2}}
+	{\sum_{i \in V} \lVert v \rVert^2} 
+\end{align*}
+Check that
+\begin{align*}
+	(N^T)(e) ={}& \sum_{k \in V} N^T(e,k) v(k) \\
+	={}& \sum_{k \in V}  N(k,e) v(k) \\
+	={}& N(i, e) v(i) + N(j,e) v(j) \\
+	={}& v(i) - v(j), \text{ or } v(j) - v(i),
+\end{align*}
+where $\{i,j\}$ is the representation of the edge $e.$
+If $e = \{ i,j\},$ then $N(k,e) = 0,$ unless $k$ is either $i$ or $j.$
+Also, $N(i,e)$ and $N(j,e)$ are $1$ and $-1$ in some order.
+Therefore, $v(i) = v(j)$ if $\{i,j\}$ forms an edge in $G.$
+So, $v(i)$ is constant for all vertices $i$ in a given component
+in $G.$ So $v$ is a scalar multiple of $\mathbf{1}.$ So, the algebraic
+multiplicity of the characteristic value $0$ is $1.$
+
+Step 2: Suppose $G$ is not connected. We may express the Laplacian $L(G)$
+as a block matrix. The diagonal blocks of $L(G)$ would be the Laplacian
+of the corresponding to the components of $G.$
+
+\end{proof}
+
+
+HOW TO OPEN LATEX ERROR LOG FILE IN VIMTEX?

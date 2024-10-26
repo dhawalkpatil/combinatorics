@@ -8,7 +8,7 @@ Recall that $\binom{n}{k},$ read ``$n$ choose $k,$"
 and represents the number of ways in which a subset of $k$ objects 
 may be chosen from a set of $n$ objects. It is also written as ${}^nC_k.$
 
-\begin{definition}[$\binom{n}{k}$]
+\begin{definition}[Binomial Coefficient]
 	For $n \in \mathbb{N},$ the \emph{binomial coefficient} $\binom{n}{k}$
 	is the number of subsets of $[n]$ with $k$ elements.
 \end{definition}
@@ -17,8 +17,7 @@ may be chosen from a set of $n$ objects. It is also written as ${}^nC_k.$
 	For $n$ in $\mathbb{N},$ we have $\binom{n}{k} =  \frac{n!}{k! (n-k)!}.$	
 \end{proposition}
 
-
-More egnerally, if $n$ is in $\mathbb{N},$ the number of partitions of $[n]$
+More generally, if $n$ is in $\mathbb{N},$ the number of partitions of $[n]$
 with sizes $k_1, \dotsc, k_r$ is denoted by
 $\begin{pmatrix} n \\ k_1 \: k_2\: \cdots \: k_r \end{pmatrix},$
 and called a \emph{multinomial coefficient.}
@@ -35,12 +34,9 @@ and called a \emph{multinomial coefficient.}
 	such that $xy = yx$), then 
 	$$ (x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^k y^{n-k} .$$
 \end{theorem}
-Combinatorial Consequences
-
-
-Settings $x=1, y=  1$ here, we get
-$$
-\sum_{j=0}^{n} \binom{n}{j} = (1+1)^n = 2^n.$$
+A combinatorial consequence of this observation is the following.
+Setting $x=1, y=  1$ here, we get
+$$\sum_{j=0}^{n} \binom{n}{j} = (1+1)^n = 2^n.$$
 Is there a bijective proof of this identity?
 
 \section{Recurrence Relations}
@@ -50,10 +46,10 @@ Is there a bijective proof of this identity?
 	F_n = F_{n-2} + F_{n-1},$$
 	for all natural numbers $n.$
 \end{example}
-This is a difference equation and may be viewd as an analogue of a differential
+This is a difference equation and may be viewed as an analogue of a differential
 equation in a \emph{discrete time domain.}
 So, a solution for $F_n$ for a general $n$ in $\mathbb{N}$ without
-using recurrence relations may be though of as a solution to the difference equation.
+using recurrence relations may be thought of as a solution to the difference equation.
 The solution is $F_n = \frac{1}{\sqrt{5}} \left[ \left( 
 \frac{1 + \sqrt{5}}{2}^n \right)  - \left( \frac{1 - \sqrt{5}}{2}^n \right) \right].$
 

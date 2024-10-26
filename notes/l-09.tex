@@ -1,4 +1,5 @@
-\lecture{Lecture - 09\hfil18 Sep 24, Wed}
+
+\lecture{Lecture - 09\hfill18 Sep 24, Wed}
 
 \begin{definition}[Permutation]
 	Let $S$ be a set. A function $ \sigma \colon S \to S$ is said to be a
@@ -48,24 +49,38 @@ Induction hypothesis:
 Suppose every permutation $\sigma$ in $S_n$ with at most $k-1$ non fixed points
 is a product of disjoint cycles.
 We proceed to prove that $\sigma$ in $S_n$ is a product of disjoint cycles
-if it has $m$ non-fixed points.
+if it has $k$ non-fixed points.
 Pick a point $a_0$ in $ \left[ n \right] $ which is not a fixed point of $\sigma.$
-We then examine the elements $$a_1 = \sigma(a_0), a_2 = \sigma^2(a_0), \dotsc, a_m = \sigma^m(a).$$
+We then examine the elements $$a_1 = \sigma(a_0), a_2 = \sigma^2(a_0), \dotsc, a_k = \sigma^k(a).$$
 As these are all non fixed points of $\sigma,$ at least two of them are the same 
-because these are $m+1$ in number and there are only $m$ non fixed points of 
+because these are $k+1$ in number and there are only $m$ non fixed points of 
 $\sigma.$ Suppose $\sigma^j(a_0) = a_j = a_l = \sigma^l(a_0).$
 If $j=0$ and $l=m,$ then 
-$$ a_0, \sigma(a_0), \dotsc, \sigma^{m-1}(a_0) $$
-is an $m$\nobreakdash-cycle.
+$$ ( a_0 \, \sigma(a_0) \, \dotsc \, \sigma^{m-1}(a_0) )$$
+is an $k$\nobreakdash-cycle.
 Otherwise $ \tau = (a_j, a _{j+1}, \dotsc, a _{l-1})$ is a cycle with $l-1-j$
 non fixed points.
 For $s = \sigma(a_i),$ where $i=j, j+1, \dotsc l-1,$ we have
 $$ \tau^{-1} \circ \sigma (s) = \tau^{-1}(\sigma^{i+1}(a_0)) = \sigma^i(a_0)$$
 so that $\tau^{-1} \circ \sigma$ leaves $a_j, a _{j+1}, \dotsc, a_{l-1}$ fixed.
-It also fixes all the points which are fixed by $ \sigma.$
+$\tau$ also fixes all the points which are fixed by $ \sigma,$ so all 
+the other $n - k$ points fixed by $\sigma$ are fixed by $\tau^{-1} \circ \sigma.$
+
 Thus, it has $m - l + j < m $ non fixed points.
-It can thus be expressed as a product of disjoint cycles.
-$\tau$ is itself a cycle.
+It can thus be expressed as a product of disjoint cycles as
+$$ \tau^{-1} \circ \sigma = 
+(a_{1\, 1} \, a_{1\, 2} \, \dotsc \, a_{1 \, k_1} )
+(a_{2\, 1} \, a_{1\, 2} \, \dotsc \, a_{2 \, k_1} )
+\cdots
+(a_{l\, 1} \, a_{l\, 2} \, \dotsc \, a_{l \, k_1} )
+.$$
+$\tau$ is itself a cycle, so we have a cyclic decomposition for $\sigma$
+as follows
+$$ ( a_0 \, \sigma(a_0) \, \dotsc \, \sigma^{m-1}(a_0) )
+(a_{1\, 1} \, a_{1\, 2} \, \dotsc \, a_{1 \, k_1} )
+(a_{2\, 1} \, a_{1\, 2} \, \dotsc \, a_{2 \, k_1} )
+\cdots
+(a_{l\, 1} \, a_{l\, 2} \, \dotsc \, a_{l \, k_1} ) . $$
 \end{proof}
 
 \begin{proof}[Alternative proof]
@@ -76,37 +91,45 @@ is a cycle of length $m.$
 If, otherwise, $\sigma^j(a) = a$ for some positive integer $j \leq m-1,$
 we have $\sigma = \tau \circ \mu$ 
 where $\tau(a) = \sigma(a)$ and $\tau^l(a) = \sigma^l(a)$
-is a permutation which leaves all points other than those in
-$T = \left\{ a, \sigma(a), \dotsc , \sigma^{j-1}(a) \right\} $
-fixed and $\mu$ is the restriction of $\sigma$ to 
+for $l = 1, 2, \dotsc, j-1.$ $\tau$
+is a permutation which fixes all points other than those in
+$T = \left\{ a, \sigma(a), \dotsc , \sigma^{j-1}(a) \right\},$
+and $\mu$ is the restriction of $\sigma$ to 
 $\left[ n \right]  \setminus T.$
 That is,
 $$\mu(s) = \begin{cases}
 	s, \quad & \text{ if } s \in T\\
 	\sigma(s), \quad & \text{ otherwise }
 \end{cases} $$
-We know that $\tau$ fixes all points not in $S.$
-We want to show that $\mu$ fixes all points in $S.$
+We know that $\tau$ fixes all points not in $T.$
+We want to show that $\mu$ fixes all points in $T.$
 Note that we can express $a = \sigma^j(a).$
 If $\mu(b) = \sigma^i(a)$ for some element $\sigma^i(a)$ in $T,$
 then $\mu(b) = \sigma(b),$ meaning that $b = \sigma^{i-1}(a) $ is in $T.$
 However, this is not possible because $\mu$ is chosen to fix all points
 in $T.$ We need to prove that $\mu$ is a permutation.
-Given $t,r$ in $ \left[ n \right] ,$ we have
-$ \mu(t) = t $ and $ \mu(r) = r$ if $r,t$ are in $T$
-$ \mu(t) = \sigma(t) \not = \sigma(r) = \mu(r)$ if both $r$ ant $t$ are not in $T,$
-and $ \mu(t) = \sigma(t) \not = r = \mu(r)$ if $r$ is in $T$ but $t$ is not in $T$
-because $\sigma(t)$ is in not in $T.$
-This shows that $\mu$ is injective.
+Let $r,t$ be in $\left[ n \right] .$ If $r$ and $t$ are both 
+in $T,$ then $ \mu(t) = t $ and $ \mu(r) = r.$ If neither $r$ nor
+$t$ are in $T,$ then $ \mu(t) = \sigma(t) \not = \sigma(r) = \mu(r)$ 
+because $\sigma$ is injective.
+If both $r$ ant $t$ are not in $T,$
+If one of $r, t$ is in $T,$ then exactly one of 
+$\mu(r),$ $\mu(t)$ is in $T,$ so again they are not equal.
+Thus, $\mu$ is injective.
 Let $s$ be in $\left[ n \right].$ If $s = \sigma^i(a)$ for some positive integer $i \leq l,$
 then $s $ is in $T$ and $s = \mu(s),$ otherwise $ s = \sigma(s') = \mu(s') $ for some $s'$ in
 $ \left[ n \right] \setminus T$ because $ \sigma$ is surjective.
 This shows that $ \mu$ is surjective.
 Finally, we have that $ T = \left\{ a, \sigma(a), \dotsc, \sigma^{j-1}(a) \right\} $
-has cardinality $j$ which is less than $m$ and so it leaves more than $n-m$ points fixed.
-
-
-
+has cardinality $j$ which is less than $m$ 
+and so it leaves more than $n-m$ points fixed.
+So, $\mu$ has at least $n-m+j$ points which are fixed.
+Proceeding in this way we can express $\sigma$ as 
+$$ \tau \circ \tau_2 \circ \cdots \circ \tau_k \circ \mu.$$
+Here, $\mu$ has at least $n-m + j + 2(k-1)$ fixed points.
+In finitely many steps, we will reach a point where
+$\mu$ has at least $n-2$ fixed points. This would mean 
+that $\mu$ itself is a cycle.
 \end{proof}
 
 \begin{theorem}[Decomposition into Transpositions]\label{thm:decomposition-into-transpositions}

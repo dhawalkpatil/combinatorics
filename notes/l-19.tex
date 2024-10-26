@@ -8,7 +8,7 @@
 
 \begin{definition}[The rising factorial]
 	For any positive integer $n,$ we define the \emph{rising factorial} to be 
-	$$ (t)^n = t(t+1) \cdots (t + n-1).$$
+	$$ t^{(n)} = t(t+1) \cdots (t + n-1).$$
 \end{definition}
 
 
@@ -76,13 +76,14 @@ Conversely, given a partition $A_1, A_2, \dotsc, A_k$ of $[n]$ into $k$ nonempty
 $f(i) = \sigma(j)$ such that $i$ is in $A_{j}$ is a surjective function.
 Thus, we have proved the following theorem
 \begin{theorem}
-	If $n \geq k,$ then 
+	If $n \geq k,$ then the number of surjective maps from
+	$[n]$ to $[k]$ is expressed by the following relation
 	\begin{align*}
 		k! \begin{Bmatrix} n\\k\end{Bmatrix}
 		={}& \lvert \{ f\colon [n] \to [k] \; | \;
 		f \text{ is surjective } \} \rvert \\
-		={}& \sum_{j=0}^{k} (-1)^j \binom{k}{j} (k-j)^n\\
-	\end{align*}.
+		={}& \sum_{j=0}^{k} (-1)^j \binom{k}{j} (k-j)^n.
+	\end{align*}
 \end{theorem}
 
 
@@ -101,13 +102,13 @@ $$	 t^n = \sum_{k \in [n]}
 \end{theorem}
 
 \begin{proof}
-	May be proven using induction.
+	Assuming that $$t^{k} = \sum_{i \in [k]} 
+	\begin{Bmatrix} n \\ i \end{Bmatrix} (t)_i,$$
+\begin{align*}
+	t^{k+1} ={}& (t-k) t^k + k t^k \\
+	={}& COMPLETE THIS!
+\end{align*}
 \end{proof}
-
-\begin{remark}
-	Note that $(t)_n$ 
-\end{remark}
-
 
 \begin{definition}
 	A vector space $V$ over a field $\mathbb{F},$ is a set
@@ -153,6 +154,4 @@ $$\begin{bmatrix}n\\0\end{bmatrix} =
 0 & \text{ if } n \in \mathbb{N} \\
 1 & \text{ if } n = 0 \\
 \end{cases}. $$
-
-k
 

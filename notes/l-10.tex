@@ -27,7 +27,7 @@ is the smallest natural number $k$ such that $\sigma^k = \iota.$
 \section{Decomposition into transpositions}
 Consider the polynomial $ \Delta_n$ in $n$ variables $x_1, x_2, \dotsc, x_n$ defined
 by
-$$ \Delta_n = \Pi _{1 \leq i \leq j \leq n} (x_i - x_j) $$
+$$ \Delta_n = \Pi _{1 \leq i < j \leq n} (x_i - x_j) $$
 
 For any $ \sigma \in S_n,$ define the polynomial
 $$ \Delta_n( \sigma) = \Pi _{1 \leq i < j \leq n} ( x _{\sigma(i) } - s _{ \sigma(j)} ). $$
@@ -45,7 +45,7 @@ $ \Delta $ but possibly introduces a $-$ sign.
 	\end{cases}. $$
 \end{definition}
 
-\begin{theorem}[asd]
+\begin{theorem}
 	For any natural number $ n \geq 2,$
 	\begin{enumerate}
 		\item If $ \sigma$ is a transposition, $ \operatorname{sgn} ( \sigma) = -1.$
@@ -91,5 +91,3 @@ $ \Delta $ but possibly introduces a $-$ sign.
 	what does not change is whether there are an odd or even number of transpositions.
 \end{remark}
 
-Exercise
-For a cycle, write it as a product

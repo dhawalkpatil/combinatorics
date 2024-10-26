@@ -93,7 +93,8 @@ $A_i \cap A_j =  \phi$ if $i \not = j$ and $\bigcup_{i \in [k]} A_i = A.$
 \end{lemma}
 
 \begin{proof}
-	In order for the formula to hold for $n=2,$ we need that	$2 = B_2 = \sum_{k=1}^{2} \binom{1}{k} B_k
+	In order for the formula to hold for $n=2,$ we need that
+	$2 = B_2 = \sum_{k=1}^{2} \binom{1}{k} B_k
 	= \binom{1}{0} B_0 + \binom{1}{1} B_1
 	= B_0 + B_1.$
 	This means we need to set $B_0 = 1.$
@@ -101,7 +102,7 @@ $A_i \cap A_j =  \phi$ if $i \not = j$ and $\bigcup_{i \in [k]} A_i = A.$
 	Then there is exactly one block, say $A_j$ which contains $n.$
 	Then, $A_j = \{n\} \cup Y$ for some $ Y \subset [n-1].$
 	If $ \lvert A_j \rvert = m,$ then $ \lvert Y \rvert = m-1;$ 
-	so $Y$ could be one of $\binom{n-1}{m-1}$ subsets of $[n-1]$
+	so $Y$ could be one of $\binom{n-1}{m-1}$ subsets of $[n-1].$
 	The remaining elements in $[n] \setminus A_j$ could be 
 	partitioned in $B_{n-m}$ ways.
 	Therefore,
@@ -109,23 +110,20 @@ $A_i \cap A_j =  \phi$ if $i \not = j$ and $\bigcup_{i \in [k]} A_i = A.$
 		B_n ={}&  \sum_{m=1}^{n} \binom{n-1}{m-1} B_{n-m}.
 	\end{align*}
 \end{proof}
-
-This recurrence relaiton which we have obtained for $B_n$ is not 
+This recurrence relation which we have obtained for $B_n$ is not 
 a linear recurrence relation because the number of terms is not fixed
 but grows with $n.$
-
 \begin{definition}[Exponential generating function]
 	Given a sequence $ \{ a_n\}_n,$ the \emph{exponential
 	generating function} of $\{a_n\}_{n \in \mathbb{N}}$ is 
 	$$ G(t) = \sum_{n1}^{\infty} \frac{a_n}{n!} t^n $$
 \end{definition}
-
-Consider the epxonential generating function of $\{B_n\}$
+Consider the epxonential generating function of $\{B_n\}.$
 We have
 \begin{align*}
 	G(t) ={}& \sum_{n=0}^{\infty} \frac{B_n}{n!} t^n 
 	\intertext{Differentiating it with respect to $t,$ we get}
-	G'(t) ={}&  \sum_{n=1}^{\infty} \frac{b_n}{n!} n t^{n-1}\\
+	G'(t) ={}&  \sum_{n=1}^{\infty} \frac{B_n}{n!} n t^{n-1}\\
 	={}& \sum_{n=1}^{\infty} \frac{B_n}{(n-1)!} t^{n-1} \\
 	={}& \sum_{n=1}^{\infty} \frac{t^{n-1}}{(n-1)!}
 	\sum_{k=1}^{n} \binom{n-1}{k-1} B_{n-k} \\
@@ -146,7 +144,6 @@ We have
 	\left( \sum_{n=0}^{\infty} \frac{t^n}{n!} B_n \right) \\
 	={}& e^t G(t).
 \end{align*}
-
 Therefore, $G'(t) = e^t G(t)$ which means
 $$[\log G(t)] ' = \frac{G'(t)}{G(t)} = e^t.$$
 So, $$\log G(t) = e^t + k,$$

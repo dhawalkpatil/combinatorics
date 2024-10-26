@@ -16,9 +16,9 @@ $$ y_n = a_1 y_{n-1} + a_2 y_{n-2} + \cdots + a_k y_{n-k}.$$
 	equations, or equivalently, the first $k$ terms.
 \end{remark}
 
-Assuming that the $y_n$ is expressed by $x^n,$ for some each $n$ in 
+Assuming that the $y_n$ is expressed by $x^n,$ for each $n$ in 
 $\mathbb{N},$ where $x$ is some value in $\mathbb{K},$
-write the characteristic equation 
+we write the characteristic equation 
 $$x^k = a_1 x^{k-1} + a_2 x^{k-2} + \cdots + a_{k-1} x + a_k.$$
 Suppose the equation has $l$ distinct solutions $\alpha_1, \alpha_2,
 \dotsc, \alpha_l,$ then any linear combination of these solutions:
@@ -37,7 +37,7 @@ n^{r-1} \alpha_i^n$ are all solutions of the recurrence relation.
 The points $f(0)$, respectively $f(1)$, as in the previous definition are known
 as the starting point, respectively ending point, of $f.$
 \begin{definition}[Simple Curve]
-	A \emph{simple curve} is a continuous function $f \colon [0,1] \to X.$
+	A \emph{simple curve} is a continuous function $f \colon [0,1] \to X$
 	which is injective on $(0,1).$
 \end{definition}
 \begin{definition}[Closed curve]
@@ -50,8 +50,9 @@ as the starting point, respectively ending point, of $f.$
 \begin{theorem}[Jordan Curve Theorem]
 	If $c$ is a Jordan curve in $\mathbb{R}^2$ then $\mathbb{R}^2
 	\setminus \operatorname{Image}(c)$ consists of exactly 2 
-	connected components, one bounded, called the `interior of $c$',	and one unbounded,
-	called the `exterior of $c.$' The boundary of both of these connected components is $\operatorname{image}(c).$
+	connected components, one bounded, called the `interior of $c$',
+	and one unbounded, called the `exterior of $c.$' The boundary 
+	of both of these connected components is $\operatorname{image}(c).$
 \end{theorem}
 
 \begin{definition}[Polygon]
@@ -66,6 +67,8 @@ as the starting point, respectively ending point, of $f.$
 	\incfig{polygons}{0.4}
 \end{center}
 
+A triangulation of a polygon is a way of expressing the polygon as
+a union of non self intersecting triangles.
 
 \begin{figure}[h]
 \centering
@@ -73,17 +76,17 @@ as the starting point, respectively ending point, of $f.$
 		\tikzstyle{vertex}=[circle,fill=black!25,minimum size=12pt,inner sep=2pt]
 	shift={(3,4)}
 	\newcommand*{\coords}{\foreach \x in {1,...,5}{
-		\node[vertex] (g_\x) at (18+72*\x:2) {};
+		\node[vertex] (g_\x) at (18+72*\x:1.2) {};
 }}
-	\begin{scope}[shift={(-3,4)}]
+	\begin{scope}[shift={(-2,3)}]
 		\coords
 		\draw (g_1) -- (g_2) -- (g_3) -- (g_4) -- (g_5) -- (g_1) (g_1) -- (g_3) (g_1) -- (g_4);
 	\end{scope}
-	\begin{scope}[shift={(3,4)}]
+	\begin{scope}[shift={(2,3)}]
 		\coords
 		\draw (g_1) -- (g_2) -- (g_3) -- (g_4) -- (g_5) -- (g_1)(g_2) -- (g_5) (g_2) -- (g_4); 
 	\end{scope}
-	\begin{scope}[shift={(-5,0)}]
+	\begin{scope}[shift={(-3.6,0)}]
 		\coords
 		\draw (g_1) -- (g_2) -- (g_3) -- (g_4) -- (g_5) -- (g_1) (g_3) -- (g_1) (g_3) -- (g_5);
 	\end{scope}
@@ -91,7 +94,7 @@ as the starting point, respectively ending point, of $f.$
 		\coords
 		\draw (g_1) -- (g_2) -- (g_3) -- (g_4) -- (g_5) -- (g_1) (g_4) -- (g_2) (g_4) -- (g_1);
 	\end{scope}
-	\begin{scope}[shift={(5,0)}]
+	\begin{scope}[shift={(3.6,0)}]
 		\coords
 		\draw (g_1) -- (g_2) -- (g_3) -- (g_4) -- (g_5) -- (g_1) (g_5) -- (g_3) (g_5) -- (g_2);
 	\end{scope}
