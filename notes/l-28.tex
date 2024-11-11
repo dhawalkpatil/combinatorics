@@ -1,0 +1,51 @@
+\lecture{Lecture - 28\hfill 04 Nov 24, Mon}
+
+Proving Cayley's theorem
+We want to show that the number of (labelled) trees on $n$ vertices is $n^{n-2}.$
+For $m,n$ in $\mathbb{Z}_+,$ let $A$ be the set of all connected graphs
+on $[n]$ with $m$ edges and let $G(n,m) = \lvert A \rvert.$
+Let $F(n,m) $ be the number of graphs in $A$ with no leaves.
+For $j$ in $[n],$ let 
+\begin{align*}
+A_j =& \left\{ G \in A \;:\; \deg_G(j) = 1\right\} \\
+=& \left\{ G \in A \;:\; j \text{ is a leaf in } G\right\}.
+\end{align*}
+
+So, $F(n,m) = \lvert A \setminus \bigcup_\{j \in [n]\} A_j \rvert.$
+Note that $\lvert A_j \rvert = G(n-1, m-1) (n-1).$
+More generally if $J \subset [n],$ and $A_J = bigcap_{j \in J} A_j,$
+$$\lvert A_J = G(n - \lvert J \rvert, m - \lvert J \rvert) ( n-1)^{\lvert
+J \rvert}.$$
+By the Inclusion-Exclusion Principle,
+$$F(n,m) = \sum_{J \subset [n]} (-1)^{\lvert J \rvert} G(n- \lvert J
+\rvert, m - \lvert J \rvert) $$
+...
+The number of connected graphs on $[n]$ with $m$ edges and no leaves is
+$$F(n,m) = \sum_{i=0}^n (-1)^i \binom{n}{i} G(n-i, m-i) G(n-i)^i.$$
+The characterisation of trees implied that any connected graph on 
+$[n]$ with $n-1$ edges is a tree.
+So, $G(n,n-1) $ is the number of trees on $[n].$
+As $F(n, n-1)$ is the number of trees on $[n]$ with no leaves.
+So we conclude the
+\begin{lemma}If $T_n$ is the number of trees on $[n],$ then
+$$\sum_{i=0}^n (-1)^i \binom{n}{i} T_{n-i} (n-i)^i = 0.$$
+\end{lemma}
+We want to solve this equation for $\{T_n\}$ in the form of an explicit
+formula.
+We use induction to show that $T_n = n^{n-2}.$
+For $n=2,$ $T_2 = 1 = 2^{2-2}.$ Suppose this is true for $i = 1,2, \dotsc,
+k.$ We proceed to show that is holds true for $i=k+1.$
+Using the preceeding lemma, we get
+\begin{align*}
+(-1)^0 \binom{k+1}{0} T_{k+1} =& - \sum_{i=1}^{k+1} (-1)^i \binom{k+1}{i}
+T_{k+1-i} (k+1-i)^i \\
+=& - \sum_{i=1}^{k+1} (-1)^i \binom{k+1}{i} (k+1-i)^{k-1-i} (k+1-i)^i \\
+=& -\sum_{i=1}^{k+1} \sum_{j=0}^{k-1} (-1)^i 
+\binom{k+1}{i} \binom{k+1}{j} (k+1)^j i^{k+1-j} \\
+\end{align*}
+
+\section{Spanning trees}
+Suppose we are given a graph $G = (V,E).$
+\begin{definition}
+A spanning subgraph of $G$ is a graph on the vertex set $V$ whose edge set is a subset of $E.$
+A spanning tree in $G$ is a spanning subgraph which is a tree.
